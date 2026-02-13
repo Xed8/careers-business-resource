@@ -1,38 +1,5 @@
 import { Building2, Target, Heart } from 'lucide-react';
 
-const teamMembers = [
-  {
-    name: 'Chrissa B. Ranis',
-    role: 'Founder & Chairman of the Board',
-    image: 'https://static.wixstatic.com/media/f7febc_a1b792c3db914646a684e5977ef24079~mv2.png',
-    description: 'With years of top-level executive experience, Chrissa has a proven track record of leading teams to achieve their strategic and growth objectives. She is recognized in the Philippine BPO Industry with her comprehensive understanding of business operations, strategic planning and being a naturally-balanced mix of an Integrator and Visionary.'
-  },
-  {
-    name: 'Atty. Euchrissa Theresa Ladrera',
-    role: 'Corporate Secretary',
-    image: 'https://static.wixstatic.com/media/f7febc_e4043ffa488c4e8bb20e2161309c551a~mv2.png',
-    description: 'A versatile young attorney with a diverse skill set, she is an invaluable part of Caliber Business Resource as Corporate Secretary. A graduate of the University of the Philippines - Cebu, Atty. Ladrera brings a robust legal background and experience as a Virtual Lawyer Associate for a prominent US law firm.'
-  },
-  {
-    name: 'Bertch Ian Ranis',
-    role: 'Director for Marketing',
-    image: 'https://static.wixstatic.com/media/f7febc_6200886257be4ac3a3ae72b223447014~mv2.png',
-    description: 'Bertch is an esteemed leader and visionary himself, in the realm of business and marketing. He is also currently serving as the Chairman and Managing Director of Fil-Global Immigration Services, which has been in the business for 10 years. He brings a wealth of experience and expertise to his role.'
-  },
-  {
-    name: 'Laureen Lejarde',
-    role: 'Director for Operations',
-    image: 'https://static.wixstatic.com/media/f7febc_8ed0a335fcca45ca9d5d1c515396acc5~mv2.png',
-    description: 'Laureen is a virtual powerhouse, with over 15 years of diverse experience in Customer Relationship Management, Training, Product Development, Technical Recruitment, Project Management, and BPO Operations. Currently serving as the Head of Customer Success for Fire Recruitment Services in Australia.'
-  },
-  {
-    name: 'Joanne Apat',
-    role: 'Business Development Partner',
-    image: 'https://static.wixstatic.com/media/f7febc_0c5bfa96f23c45d289519e7c7ee9b9a6~mv2.png',
-    description: 'Joanne has an extensive background in client and project management, technology, data privacy, and cybersecurity. Joanne is the third president of the Bohol ICT and served as a Board Trustee of the National ICT Confederation of the Philippines, showcasing her leadership in digital innovation.'
-  }
-];
-
 const ethos = [
   { letter: 'R', text: 'Rise by lifting Entrepreneurs' },
   { letter: 'I', text: 'Inspire Ideals through Strategy and Efficiency' },
@@ -60,183 +27,217 @@ const values = [
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-white scroll-mt-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-24 bg-background relative overflow-hidden">
+      {/* Decorative blobs */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
         {/* Our Story */}
-        <div className="mb-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Our Story</h2>
-              <div className="space-y-4 text-foreground/80">
-                <p>
-                  At Caliber Business Resource Incorporated, we are dedicated to transforming the way businesses 
-                  approach remote staffing and operational support. CBR was founded not only from a passion for 
-                  business innovation, but also from a God-given desire to be a blessing to our people and our nation.
-                </p>
-                <p>
-                  We specialize in building high-performing, customized teams through our micro call center offices 
-                  located in both the vibrant cities and the quieter, yet equally talented, heartlands of the Philippine Islands.
-                </p>
-                <p>
-                  We live by the name CALIBER—not just in the level of our skill, but in the integrity of our character. 
-                  Everything we do is done with excellence, with a servant heart, and with the understanding that this 
-                  work is a stewardship entrusted to us.
-                </p>
-              </div>
+        <div className="mb-32">
+          <div className="max-w-3xl mb-12 animate-slide-up">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+              Our <span className="text-primary">Story</span>
+            </h2>
+            <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
+              <p>
+                At Caliber Business Resource Incorporated, we are dedicated to transforming the way businesses
+                approach remote staffing and operational support. CBR was founded not only from a passion for
+                business innovation, but also from a God-given desire to be a blessing to our people and our nation.
+              </p>
+              <p>
+                We specialize in building high-performing, customized teams through our micro call center offices
+                located in both the vibrant cities and the quieter, yet equally talented, heartlands of the Philippine Islands.
+              </p>
+              <p>
+                We live by the name <span className="text-primary font-bold">CALIBER</span>—not just in the level of our skill, but in the integrity of our character.
+                Everything we do is done with excellence, with a servant heart, and with the understanding that this
+                work is a stewardship entrusted to us.
+              </p>
             </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl transform rotate-3"></div>
+          </div>
+
+          <div className="relative group w-full">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500" />
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 glass-card">
               <img
-                src="https://static.wixstatic.com/media/f7febc_763f8ee9df414938b21b295b1d2d4320f000.jpg"
-                alt="Our Office"
-                className="relative rounded-2xl shadow-xl w-full h-[400px] object-cover"
+                src="/images/our-story-main.png"
+                alt="Caliber Business Resource - You Build Your Business, We Build Your Team"
+                className="w-full h-auto object-contain transform hover:scale-[1.01] transition-transform duration-700"
               />
             </div>
           </div>
         </div>
 
-        {/* Message from CEO */}
-        <div className="mb-20 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 md:p-12">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">Message from the CEO</h2>
-              <div className="space-y-4 text-foreground/80">
-                <p>
-                  Caliber Business Resource Incorporated (CBR) was born out of a deeper purpose—a calling placed 
-                  in our hearts by God. What began as a business idea quickly became a mission: to give back to our 
-                  fellow Filipinos and, above all, to glorify Him through our work.
-                </p>
-                <p>
-                  Every decision we make and every partnership we build is rooted in that calling. We believe that 
-                  when we put God first, everything else follows. We don&apos;t have to chase blessings—they will come 
-                  running after us, because that&apos;s God&apos;s promise.
-                </p>
-                <blockquote className="border-l-4 border-accent pl-4 italic text-primary font-medium my-6">
-                  &quot;But seek first the kingdom of God and his righteousness, and all these things will be added to you.&quot;
-                  <span className="block mt-2 text-sm not-italic text-foreground/60">— Matthew 6:33 (ESV)</span>
-                </blockquote>
+        {/* Message from CEO (Redesigned as a Quote/Highlight section) */}
+        <div className="mb-32 relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent rounded-3xl" />
+          <div className="relative grid lg:grid-cols-2 gap-12 p-8 md:p-12 items-center bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10">
+            <div className="order-2 lg:order-1">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-1 bg-primary rounded-full" />
+                <span className="text-primary font-bold uppercase tracking-widest text-sm">Message from the CEO</span>
               </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 leading-tight">
+                "We believe that when we put God first, everything else follows."
+              </h3>
+              <p className="text-gray-400 mb-8 leading-relaxed">
+                Caliber Business Resource was born out of a deeper purpose. What began as a business idea quickly
+                became a mission: to give back to our fellow Filipinos and, above all, to glorify Him through our work.
+              </p>
+              <cite className="not-italic">
+                <div className="font-bold text-white text-lg">Chrissa B. Ranis</div>
+                <div className="text-primary">Founder & CEO</div>
+              </cite>
             </div>
-            <div className="relative">
+            <div className="order-1 lg:order-2">
               <img
                 src="https://static.wixstatic.com/media/f7febc_c693a9a4ad8a4397a3c44a9d13967d5f~mv2.png"
                 alt="CEO"
-                className="rounded-2xl shadow-xl w-full h-auto"
+                className="rounded-2xl shadow-2xl w-full max-w-md mx-auto border-4 border-white/5"
               />
             </div>
           </div>
         </div>
 
-        {/* Our Awesome Team */}
-        <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-12">Our Awesome Team</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member) => (
+        {/* Vision & Mission Cards */}
+        <div className="grid md:grid-cols-2 gap-6 mb-32">
+          {[
+            {
+              title: 'Vision',
+              text: 'To be a game-changer and leader in micro call center solutions, offering the simplest business solutions and robust manpower resources tailored for thriving business enterprises.',
+              gradient: 'from-blue-600/20 to-blue-900/20'
+            },
+            {
+              title: 'Mission',
+              text: 'We aim to provide unparalleled micro call center and backend solutions, enabling small to medium-sized businesses to achieve strategic clarity and expand their market presence while we manage the operational intricacies.',
+              gradient: 'from-amber-500/20 to-amber-700/20'
+            }
+          ].map((item, idx) => (
+            <div key={idx} className={`p-8 rounded-2xl bg-gradient-to-br ${item.gradient} border border-white/10 hover:border-primary/30 transition-colors`}>
+              <h3 className="text-3xl font-bold text-white mb-4">{item.title}</h3>
+              <p className="text-gray-300 leading-relaxed">{item.text}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Meet Our Team */}
+        <div className="mb-32">
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Meet Our <span className="text-primary">Team</span>
+            </h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Our leadership team brings decades of combined experience in BPO, operational excellence, and strategic management.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-8">
+            {[
+              {
+                name: 'Chrissa B. Ranis',
+                role: 'Founder & Chairman of the Board',
+                image: '/images/Chrissa.png'
+              },
+              {
+                name: 'Atty. Euchrissa Theresa Ladrera',
+                role: 'Corporate Secretary',
+                image: '/images/Euchrissa.png'
+              },
+              {
+                name: 'Bertch Ian Ranis',
+                role: 'Director for Marketing',
+                image: '/images/Bertch.png'
+              },
+              {
+                name: 'Laureen Lejarde',
+                role: 'Director for Operations',
+                image: '/images/Laureen.png'
+              },
+              {
+                name: 'Joanne Apat',
+                role: 'Business Development Partner',
+                image: '/images/Joanne.png'
+              }
+            ].map((member, index) => (
               <div
                 key={member.name}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                className="group relative w-full sm:w-[calc(50%-2rem)] lg:w-[calc(33.33%-2rem)] xl:w-[calc(20%-2rem)]"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="h-[320px] w-full overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-primary mb-1">{member.name}</h3>
-                  <p className="text-accent font-medium text-sm mb-3">{member.role}</p>
-                  <p className="text-foreground/70 text-sm">{member.description}</p>
+                <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-accent/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
+
+                <div className="relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 glass-card transition-all duration-300 group-hover:-translate-y-2 h-full">
+                  <div className="aspect-[3/4] relative overflow-hidden">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110 group-hover:grayscale-0 grayscale"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-80" />
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
+                    <p className="text-primary font-medium text-sm uppercase tracking-wider">{member.role}</p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Vision & Mission */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
-          <div className="bg-primary text-white rounded-2xl p-8">
-            <h3 className="text-2xl font-bold mb-4">Vision</h3>
-            <p className="text-white/90">
-              Our vision is to be a game-changer, leader in micro call center solutions, offering the simplest 
-              business solutions and robust manpower resources tailored for thriving business enterprises.
-            </p>
+        {/* Ethos */}
+        <div className="mb-32">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Ethos</h2>
+            <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           </div>
-          <div className="bg-accent text-white rounded-2xl p-8">
-            <h3 className="text-2xl font-bold mb-4">Mission</h3>
-            <p className="text-white/90">
-              Driven by our vision, we aim to provide unparalleled micro call center and backend solutions, 
-              enabling small to medium-sized businesses to achieve strategic clarity and expand their market 
-              presence while we manage the operational intricacies.
-            </p>
-          </div>
-        </div>
-
-        {/* Our Ethos - RISE */}
-        <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-4">Our Ethos</h2>
-          <p className="text-center text-foreground/70 mb-8">At Caliber Business Resource, we embody the ethos of RISE:</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {ethos.map((item) => (
               <div
                 key={item.letter}
-                className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl p-6 text-center hover:shadow-lg transition-shadow"
+                className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-primary/20 hover:border-primary/50 transition-all duration-300 transform hover:-translate-y-2 text-center"
               >
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
-                  <span className="text-3xl font-bold text-white">{item.letter}</span>
+                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-primary to-amber-600 rounded-full flex items-center justify-center shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">
+                  <span className="text-3xl font-bold text-background">{item.letter}</span>
                 </div>
-                <p className="text-foreground/80 font-medium">{item.text}</p>
+                <p className="text-gray-300 font-medium group-hover:text-white transition-colors">{item.text}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Why Join Us - Values */}
-        <div className="mb-20">
-          <div className="bg-gradient-to-br from-primary to-primary/90 rounded-3xl p-8 sm:p-12 lg:p-16 text-white overflow-hidden relative">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-            
-            <div className="relative z-10">
-              <div className="max-w-3xl mb-12">
-                <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-                  Why Join Caliber Business Resource?
-                </h2>
-                <p className="text-lg text-white/80 leading-relaxed">
-                  At Caliber Business Resource, we believe that our success is driven by our people. 
-                  We&apos;re committed to creating an environment where talented individuals can thrive, 
-                  grow their careers, and make a meaningful impact. Join us and be part of a team 
-                  that values innovation, collaboration, and professional development.
-                </p>
-              </div>
+        {/* Why Join Us */}
+        <div className="relative rounded-3xl overflow-hidden bg-secondary">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
 
-              <div className="grid md:grid-cols-3 gap-8">
-                {values.map((value, index) => (
-                  <div 
-                    key={index}
-                    className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/15 transition-colors duration-300"
-                  >
-                    <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
-                      <value.icon className="w-6 h-6 text-accent" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
-                    <p className="text-white/70 text-sm leading-relaxed">{value.description}</p>
-                  </div>
-                ))}
-              </div>
+          <div className="relative z-10 p-8 md:p-16 lg:p-20">
+            <div className="max-w-3xl mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Why Join Caliber?</h2>
+              <p className="text-gray-400 text-lg">
+                We believe our success is driven by our people. We're committed to creating an environment where
+                talented individuals can thrive, grow their careers, and make a meaningful impact.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {values.map((value, index) => (
+                <div
+                  key={index}
+                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-colors"
+                >
+                  <value.icon className="w-10 h-10 text-primary mb-6" />
+                  <h3 className="text-xl font-bold text-white mb-3">{value.title}</h3>
+                  <p className="text-gray-400 leading-relaxed">{value.description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Our Commitment */}
-        <div className="bg-gradient-to-r from-primary to-accent rounded-2xl p-8 md:p-12 text-center text-white">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Commitment</h2>
-          <p className="text-xl md:text-2xl font-medium mb-4">&quot;You build your business, we build your team&quot;</p>
-          <p className="text-white/90 max-w-3xl mx-auto">
-            With our quality control system and agents reporting to on-site offices, we ensure your operations 
-            run smoothly and efficiently according to your set standards.
-          </p>
-        </div>
       </div>
     </section>
   );

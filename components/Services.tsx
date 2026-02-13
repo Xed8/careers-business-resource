@@ -1,76 +1,84 @@
-import { 
-  Headphones, 
-  Database, 
-  Calculator, 
-  Users, 
-  Mic, 
-  Megaphone, 
-  Wrench, 
+import {
+  Headphones,
+  Database,
+  Calculator,
+  Users,
+  Mic,
+  Megaphone,
+  Wrench,
   UserSearch,
-  Filter
+  Filter,
+  Code2 // Added for Web Developer
 } from 'lucide-react';
 
 const services = [
   {
+    icon: Code2,
+    title: 'Senior Web Developer',
+    description: 'Expert developers to build and scale your web applications using modern technologies like React, Next.js, and Node.js. They ensure high performance, search engine optimization, and a seamless user experience for your digital products.',
+    highlight: true // New property to highlight this card
+  },
+  {
     icon: Users,
     title: 'Sales Support',
-    description: 'Agents in sales support roles assist in generating revenue by nurturing leads, following up on inquiries, and closing sales. They possess strong communication and persuasion skills to effectively convey product or service benefits, ultimately contributing to the growth and profitability of the organization.'
+    description: 'Agents in sales support roles assist in generating revenue by nurturing leads, following up on inquiries, and closing sales. They possess strong communication and persuasion skills to effectively convey product or service benefits.'
   },
   {
     icon: Database,
     title: 'Data Entry/Admin Support',
-    description: 'Agents in data entry and admin support roles play a vital role in maintaining organizational efficiency by managing data entry tasks, processing documents, and providing administrative support. Their attention to detail, organizational skills, and proficiency in office software ensure accurate data management and streamlined administrative processes.'
+    description: 'Agents in data entry and admin support roles play a vital role in maintaining organizational efficiency by managing data entry tasks, processing documents, and providing administrative support.'
   },
   {
     icon: Calculator,
     title: 'Accounting and Bookkeeping',
-    description: 'A comprehensive Accounting and Bookkeeping services tailored to meet the financial management needs of businesses. Our skilled professionals handle everything from day-to-day transactions to financial reporting and analysis, ensuring accuracy and compliance. By leveraging their expertise, Caliber Business Resource supports businesses in maintaining clear financial records and making informed decisions to drive growth and success.'
+    description: 'Comprehensive financial management services. Our skilled professionals handle everything from day-to-day transactions to financial reporting and analysis, ensuring accuracy and compliance.'
   },
   {
     icon: Headphones,
     title: 'Customer Service',
-    description: 'Customer service agents are dedicated to ensuring customer satisfaction by addressing inquiries, resolving issues, and providing support across various channels. They embody the brand\'s values through empathy, problem-solving abilities, and a customer-centric approach, fostering loyalty and positive relationships with clients.'
+    description: 'Dedicated agents ensuring customer satisfaction by addressing inquiries, resolving issues, and providing support across various channels with empathy and problem-solving abilities.'
   },
   {
     icon: Mic,
     title: 'Podcast Editors',
-    description: 'Podcast editors are skilled in editing audio content to enhance quality, clarity, and coherence. They possess technical proficiency in audio editing software, creative flair for storytelling, and attention to detail to produce engaging and professional podcasts that resonate with listeners.'
+    description: 'Skilled editors who enhance audio quality, clarity, and coherence. They use professional software and storytelling flair to produce engaging podcasts that resonate with listeners.'
   },
   {
     icon: Megaphone,
     title: 'Marketing Specialists',
-    description: 'A full-time Caliber Marketing Specialist can be responsible for developing and executing marketing strategies to promote products, services, or brands. They analyze market trends, identify target audiences, create marketing campaigns, and monitor performance to optimize results. Their tasks often include content creation, social media management, market research, and coordinating with sales teams to ensure alignment with business goals.'
+    description: 'Strategists who develop and execute marketing campaigns. They analyze trends, identify audiences, and manage content/social media to promote your brand and drive growth.'
   },
   {
     icon: Wrench,
     title: 'Tech Support',
-    description: 'Tech support agents specialize in assisting customers with technical issues related to products or services. They troubleshoot problems, offer solutions, and guide users through technical processes, leveraging their expertise in technology and communication to deliver effective support and enhance customer experience.'
+    description: 'Specialists who assist customers with technical issues, troubleshooting problems and guiding users through processes to deliver effective support and enhance customer experience.'
   },
   {
     icon: UserSearch,
     title: 'Recruiters',
-    description: 'Recruiters are responsible for sourcing, screening, and selecting qualified candidates to fill job openings within the organization. They manage the recruitment process from start to finish, including job posting, candidate sourcing, interviewing, and onboarding. Recruiters leverage their expertise in talent acquisition and relationship-building to attract top talent aligned with the organization\'s culture and objectives.'
+    description: 'Experts in sourcing, screening, and selecting qualified candidates. They manage the entire recruitment process to find top talent aligned with your organization\'s culture and goals.'
   },
   {
     icon: Filter,
     title: 'PreQualifiers',
-    description: 'A Prequalifier in sales is responsible for identifying and qualifying potential leads before they are passed on to the sales team. Their role involves assessing whether leads meet specific criteria, such as budget, needs, and readiness to purchase. This ensures that sales representatives focus their efforts on leads that are more likely to convert.'
+    description: 'Sales prequalifiers identify and qualify potential leads before they reach the sales team, assessing budget, needs, and readiness to ensure efficient sales pipelines.'
   }
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            Services We Can Provide For You
+    <section id="services" className="py-24 bg-secondary/30 relative">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-20">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            Services We Can <span className="text-primary">Provide For You</span>
           </h2>
-          <p className="text-lg text-foreground/70 max-w-3xl mx-auto">
-            At Caliber Business Resource, we offer a wide range of services to meet your operational needs. 
-            From Sales Support to Customer Service, Tech Support to Email, Data Entry/Admin Support, and 
-            even Recruitment – we handle all aspects of employing and retaining your team in the Philippines, 
-            ensuring you can focus on your core strengths.
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+            At Caliber Business Resource, we offer a comprehensive suite of outsourcing solutions.
+            From specialized technical roles to essential operational support, we build the team you need to succeed.
           </p>
         </div>
 
@@ -78,14 +86,29 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 group"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`
+                group relative p-8 rounded-2xl transition-all duration-300
+                ${service.highlight
+                  ? 'bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 shadow-[0_0_30px_-10px_rgba(255,193,7,0.15)]'
+                  : 'bg-card/40 backdrop-blur-sm border border-white/5 hover:bg-card/60 hover:border-white/10 hover:shadow-xl hover:-translate-y-1'
+                }
+              `}
+              style={{ animationDelay: `${index * 50}ms` }}
             >
-              <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl flex items-center justify-center mb-4 group-hover:from-primary group-hover:to-accent transition-all duration-300">
-                <service.icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
+              <div className={`
+                w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110
+                ${service.highlight ? 'bg-primary text-primary-foreground' : 'bg-secondary text-primary'}
+              `}>
+                <service.icon className="w-7 h-7" />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
-              <p className="text-foreground/70 text-sm leading-relaxed">{service.description}</p>
+
+              <h3 className={`text-xl font-bold mb-3 ${service.highlight ? 'text-primary' : 'text-white group-hover:text-primary transition-colors'}`}>
+                {service.title}
+              </h3>
+
+              <p className="text-gray-400 text-sm leading-relaxed">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
