@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowLeft, Home } from "lucide-react";
+import { Home } from "lucide-react";
+import BackButton from "@/components/BackButton";
 
 export const metadata = {
   title: "Page Not Found | Caliber Business Resource",
@@ -13,15 +14,15 @@ export default function NotFound() {
         <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8">
           <span className="text-6xl font-bold text-primary">404</span>
         </div>
-        
+
         <h1 className="text-3xl font-bold text-foreground mb-4">
           Page Not Found
         </h1>
-        
+
         <p className="text-muted-foreground mb-8 text-lg">
           The page you are looking for doesn&apos;t exist or has been moved.
         </p>
-        
+
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/"
@@ -30,14 +31,8 @@ export default function NotFound() {
             <Home className="w-5 h-5" />
             Back to Home
           </Link>
-          
-          <button
-            onClick={() => window.history.back()}
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors px-6 py-3"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            Go Back
-          </button>
+
+          <BackButton />
         </div>
       </div>
     </div>
