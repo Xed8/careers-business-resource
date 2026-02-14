@@ -35,7 +35,7 @@ export default function Navigation() {
           >
             <div className="relative w-12 h-12 overflow-hidden rounded-xl shadow-lg border border-white/10 group-hover:scale-105 transition-transform duration-300">
               <img
-                src="/careers-business-resource/images/logo.jpg"
+                src="/images/logo.jpg"
                 alt="Caliber Business Resource Logo"
                 className="w-full h-full object-cover"
               />

@@ -1,4 +1,7 @@
+"use client";
+
 import { TrendingUp, Shield, DollarSign, CheckCircle2 } from 'lucide-react';
+import { useScrollAnimation } from '@/lib/useScrollAnimation';
 
 const stats = [
   {
@@ -55,6 +58,8 @@ const approaches = [
 ];
 
 export default function Statistics() {
+  const { elementRef, isVisible } = useScrollAnimation();
+
   return (
     <section className="py-24 bg-background relative overflow-hidden">
       {/* Background Gradients */}
@@ -74,12 +79,11 @@ export default function Statistics() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-24">
+        <div ref={elementRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-24">
           {stats.map((stat, index) => (
             <div
               key={stat.label}
-              className="group relative p-6 sm:p-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`group relative p-6 sm:p-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 scroll-slide-up stagger-${index + 1} ${isVisible ? 'visible' : ''}`}
             >
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                 <stat.icon className="w-16 sm:w-24 h-16 sm:h-24 text-primary" />

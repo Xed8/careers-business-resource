@@ -62,7 +62,7 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500" />
             <div className="relative rounded-2xl overflow-hidden border border-white/10 glass-card">
               <img
-                src="/careers-business-resource/images/our-story-main.png"
+                src="/images/our-story-main.png"
                 alt="Caliber Business Resource - You Build Your Business, We Build Your Team"
                 className="w-full h-auto object-contain transform hover:scale-[1.01] transition-transform duration-700"
               />
@@ -138,27 +138,27 @@ export default function About() {
               {
                 name: 'Chrissa B. Ranis',
                 role: 'Founder & Chairman of the Board',
-                image: '/careers-business-resource/images/Chrissa.png'
+                image: '/images/Chrissa.png'
               },
               {
                 name: 'Atty. Euchrissa Theresa Ladrera',
                 role: 'Corporate Secretary',
-                image: '/careers-business-resource/images/Euchrissa.png'
+                image: '/images/Euchrissa.png'
               },
               {
                 name: 'Bertch Ian Ranis',
                 role: 'Director for Marketing',
-                image: '/careers-business-resource/images/Bertch.png'
+                image: '/images/Bertch.png'
               },
               {
                 name: 'Laureen Lejarde',
                 role: 'Director for Operations',
-                image: '/careers-business-resource/images/Laureen.png'
+                image: '/images/Laureen.png'
               },
               {
                 name: 'Joanne Apat',
                 role: 'Business Development Partner',
-                image: '/careers-business-resource/images/Joanne.png'
+                image: '/images/Joanne.png'
               }
             ].map((member, index) => (
               <div

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Headphones,
   Database,
@@ -10,6 +12,7 @@ import {
   Filter,
   Code2 // Added for Web Developer
 } from 'lucide-react';
+import { useScrollAnimation } from '@/lib/useScrollAnimation';
 
 const services = [
   {
@@ -66,6 +69,8 @@ const services = [
 ];
 
 export default function Services() {
+  const { elementRef, isVisible } = useScrollAnimation();
+
   return (
     <section id="services" className="py-24 bg-secondary/30 relative">
       {/* Background decoration */}
@@ -82,18 +87,17 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div ref={elementRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <div
               key={service.title}
               className={`
-                group relative p-6 sm:p-8 rounded-2xl transition-all duration-300
+                group relative p-6 sm:p-8 rounded-2xl transition-all duration-300 scroll-slide-up stagger-${Math.min(index + 1, 6)} ${isVisible ? 'visible' : ''}
                 ${service.highlight
                   ? 'bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 shadow-[0_0_30px_-10px_rgba(255,193,7,0.15)]'
                   : 'bg-card/40 backdrop-blur-sm border border-white/5 hover:bg-card/60 hover:border-white/10 hover:shadow-xl hover:-translate-y-1'
                 }
               `}
-              style={{ animationDelay: `${index * 50}ms` }}
             >
               <div className={`
                 w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 transition-transform duration-300 group-hover:scale-110

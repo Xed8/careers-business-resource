@@ -50,7 +50,7 @@ export default function Hero() {
         <div className="animate-slide-up opacity-0 flex flex-col sm:flex-row items-center gap-4 sm:gap-5 mb-12 sm:mb-16 w-full sm:w-auto px-4 sm:px-0" style={{ animationDelay: '0.4s' }}>
           <a
             href="#services"
-            className="group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-primary text-primary-foreground font-bold text-base sm:text-lg rounded-xl overflow-hidden hover:shadow-[0_0_40px_-10px_rgba(255,193,7,0.5)] transition-shadow duration-300"
+            className="btn-press group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-primary text-primary-foreground font-bold text-base sm:text-lg rounded-xl overflow-hidden hover:shadow-[0_0_40px_-10px_rgba(255,193,7,0.5)] transition-shadow duration-300"
           >
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             <span className="relative flex items-center justify-center gap-2">
@@ -60,7 +60,7 @@ export default function Hero() {
           </a>
           <a
             href="#about"
-            className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white/5 text-white font-medium text-base sm:text-lg rounded-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-center"
+            className="btn-press w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white/5 text-white font-medium text-base sm:text-lg rounded-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-center"
           >
             Learn More
           </a>

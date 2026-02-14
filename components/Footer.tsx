@@ -13,7 +13,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-6">
               <div className="relative w-12 h-12 overflow-hidden rounded-xl border border-white/10">
                 <img
-                  src="/careers-business-resource/images/logo.jpg"
+                  src="/images/logo.jpg"
                   alt="Caliber Business Resource Logo"
                   className="w-full h-full object-cover"
                 />
