@@ -82,13 +82,13 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-t border-white/10 p-4 shadow-2xl">
-          <div className="flex flex-col space-y-4">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-t border-white/10 p-6 shadow-2xl">
+          <div className="flex flex-col space-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-gray-300 hover:text-primary transition-colors font-medium px-4 py-2 hover:bg-white/5 rounded-lg"
+                className="text-gray-300 hover:text-primary transition-colors font-medium px-4 py-3 hover:bg-white/5 rounded-lg text-base"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
@@ -96,7 +96,7 @@ export default function Navigation() {
             ))}
             <a
               href="#open-roles"
-              className="bg-primary text-background px-6 py-3 rounded-lg text-center font-bold"
+              className="bg-primary text-background px-6 py-3 rounded-lg text-center font-bold mt-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               View Jobs

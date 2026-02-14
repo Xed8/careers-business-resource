@@ -35,12 +35,12 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Our Story */}
-        <div className="mb-32">
-          <div className="max-w-3xl mb-12 animate-slide-up">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+        <div className="mb-24 sm:mb-32">
+          <div className="max-w-3xl mb-8 sm:mb-12 animate-slide-up px-4 sm:px-0">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8">
               Our <span className="text-primary">Story</span>
             </h2>
-            <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
+            <div className="space-y-4 sm:space-y-6 text-gray-400 text-base sm:text-lg leading-relaxed">
               <p>
                 At Caliber Business Resource Incorporated, we are dedicated to transforming the way businesses
                 approach remote staffing and operational support. CBR was founded not only from a passion for
@@ -71,24 +71,24 @@ export default function About() {
         </div>
 
         {/* Message from CEO (Redesigned as a Quote/Highlight section) */}
-        <div className="mb-32 relative">
+        <div className="mb-24 sm:mb-32 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent rounded-3xl" />
-          <div className="relative grid lg:grid-cols-2 gap-12 p-8 md:p-12 items-center bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10">
+          <div className="relative grid lg:grid-cols-2 gap-8 sm:gap-12 p-6 sm:p-8 md:p-12 items-center bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10">
             <div className="order-2 lg:order-1">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-1 bg-primary rounded-full" />
-                <span className="text-primary font-bold uppercase tracking-widest text-sm">Message from the CEO</span>
+              <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <div className="w-8 sm:w-12 h-1 bg-primary rounded-full" />
+                <span className="text-primary font-bold uppercase tracking-widest text-xs sm:text-sm">Message from the CEO</span>
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 leading-tight">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 sm:mb-6 leading-tight">
                 "We believe that when we put God first, everything else follows."
               </h3>
-              <p className="text-gray-400 mb-8 leading-relaxed">
+              <p className="text-gray-400 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
                 Caliber Business Resource was born out of a deeper purpose. What began as a business idea quickly
                 became a mission: to give back to our fellow Filipinos and, above all, to glorify Him through our work.
               </p>
               <cite className="not-italic">
-                <div className="font-bold text-white text-lg">Chrissa B. Ranis</div>
-                <div className="text-primary">Founder & CEO</div>
+                <div className="font-bold text-white text-base sm:text-lg">Chrissa B. Ranis</div>
+                <div className="text-primary text-sm sm:text-base">Founder & CEO</div>
               </cite>
             </div>
             <div className="order-1 lg:order-2">
@@ -102,7 +102,7 @@ export default function About() {
         </div>
 
         {/* Vision & Mission Cards */}
-        <div className="grid md:grid-cols-2 gap-6 mb-32">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-24 sm:mb-32">
           {[
             {
               title: 'Vision',
@@ -115,20 +115,20 @@ export default function About() {
               gradient: 'from-amber-500/20 to-amber-700/20'
             }
           ].map((item, idx) => (
-            <div key={idx} className={`p-8 rounded-2xl bg-gradient-to-br ${item.gradient} border border-white/10 hover:border-primary/30 transition-colors`}>
-              <h3 className="text-3xl font-bold text-white mb-4">{item.title}</h3>
-              <p className="text-gray-300 leading-relaxed">{item.text}</p>
+            <div key={idx} className={`p-6 sm:p-8 rounded-2xl bg-gradient-to-br ${item.gradient} border border-white/10 hover:border-primary/30 transition-colors`}>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">{item.title}</h3>
+              <p className="text-gray-300 leading-relaxed text-sm sm:text-base">{item.text}</p>
             </div>
           ))}
         </div>
 
         {/* Meet Our Team */}
-        <div className="mb-32">
-          <div className="text-center mb-16 animate-slide-up">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <div className="mb-24 sm:mb-32">
+          <div className="text-center mb-12 sm:mb-16 animate-slide-up px-4 sm:px-0">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
               Meet Our <span className="text-primary">Team</span>
             </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">
               Our leadership team brings decades of combined experience in BPO, operational excellence, and strategic management.
             </p>
           </div>

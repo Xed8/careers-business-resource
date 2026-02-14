@@ -72,22 +72,22 @@ export default function Services() {
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+        <div className="text-center mb-16 sm:mb-20 px-4 sm:px-0">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
             Services We Can <span className="text-primary">Provide For You</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto">
             At Caliber Business Resource, we offer a comprehensive suite of outsourcing solutions.
             From specialized technical roles to essential operational support, we build the team you need to succeed.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <div
               key={service.title}
               className={`
-                group relative p-8 rounded-2xl transition-all duration-300
+                group relative p-6 sm:p-8 rounded-2xl transition-all duration-300
                 ${service.highlight
                   ? 'bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 shadow-[0_0_30px_-10px_rgba(255,193,7,0.15)]'
                   : 'bg-card/40 backdrop-blur-sm border border-white/5 hover:bg-card/60 hover:border-white/10 hover:shadow-xl hover:-translate-y-1'
@@ -96,13 +96,13 @@ export default function Services() {
               style={{ animationDelay: `${index * 50}ms` }}
             >
               <div className={`
-                w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110
+                w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 transition-transform duration-300 group-hover:scale-110
                 ${service.highlight ? 'bg-primary text-primary-foreground' : 'bg-secondary text-primary'}
               `}>
-                <service.icon className="w-7 h-7" />
+                <service.icon className="w-6 h-6 sm:w-7 sm:h-7" />
               </div>
 
-              <h3 className={`text-xl font-bold mb-3 ${service.highlight ? 'text-primary' : 'text-white group-hover:text-primary transition-colors'}`}>
+              <h3 className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 ${service.highlight ? 'text-primary' : 'text-white group-hover:text-primary transition-colors'}`}>
                 {service.title}
               </h3>
 

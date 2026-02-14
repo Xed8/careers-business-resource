@@ -10,14 +10,14 @@ export default function JobListings() {
     <div className="space-y-20">
       {/* Open Roles Section */}
       <section id="open-roles" className="scroll-mt-24">
-        <div className="mb-10">
+        <div className="mb-8 sm:mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-              <Briefcase className="w-6 h-6 text-accent" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+              <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-foreground">Open Roles</h2>
-              <p className="text-muted-foreground mt-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Open Roles</h2>
+              <p className="text-muted-foreground mt-1 text-sm sm:text-base">
                 {openRoles.length} position{openRoles.length !== 1 ? 's' : ''} available — Apply now!
               </p>
             </div>
@@ -33,14 +33,14 @@ export default function JobListings() {
 
       {/* Pooling Section */}
       <section id="pooling" className="scroll-mt-24">
-        <div className="mb-10">
+        <div className="mb-8 sm:mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-              <Users className="w-6 h-6 text-primary" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+              <Users className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-foreground">Roles for Pooling</h2>
-              <p className="text-muted-foreground mt-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Roles for Pooling</h2>
+              <p className="text-muted-foreground mt-1 text-sm sm:text-base">
                 {poolingRoles.length} position{poolingRoles.length !== 1 ? 's' : ''} — Submit your application for future opportunities
               </p>
             </div>

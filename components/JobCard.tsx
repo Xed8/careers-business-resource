@@ -31,18 +31,18 @@ export default function JobCard({ job, index }: JobCardProps) {
         </div>
       )}
 
-      <div className="p-6 md:p-8">
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+      <div className="p-6 sm:p-6 md:p-8">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 sm:gap-6">
           <div className="flex-1">
-            <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
               {job.title}
             </h3>
 
-            <p className="text-gray-400 mb-6 leading-relaxed max-w-2xl">
+            <p className="text-gray-400 mb-4 sm:mb-6 leading-relaxed max-w-2xl text-sm sm:text-base">
               {job.description}
             </p>
 
-            <div className="flex flex-wrap items-center gap-3 mb-6">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
               <span className={cn(
                 "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border",
                 locationColors[job.location] || 'bg-gray-500/20 text-gray-300 border-gray-500/30'
@@ -61,7 +61,7 @@ export default function JobCard({ job, index }: JobCardProps) {
             href={job.applyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-background px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-[0_0_20px_-5px_rgba(255,193,7,0.4)] whitespace-nowrap self-start"
+            className="w-full lg:w-auto inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-background px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-[0_0_20px_-5px_rgba(255,193,7,0.4)] whitespace-nowrap self-start"
           >
             Apply Now
             <ExternalLink className="w-4 h-4" />
@@ -69,15 +69,15 @@ export default function JobCard({ job, index }: JobCardProps) {
         </div>
 
         {/* Details - Always Visible */}
-        <div className="mt-8 pt-8 border-t border-white/10 grid md:grid-cols-2 gap-8">
+        <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/10 grid sm:grid-cols-2 gap-6 sm:gap-8">
           <div>
-            <h4 className="font-semibold text-white mb-4 flex items-center gap-2">
+            <h4 className="font-semibold text-white mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
               <Briefcase className="w-4 h-4 text-primary" />
               Key Responsibilities
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {job.responsibilities.map((resp, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-gray-400">
+                <li key={i} className="flex items-start gap-2 sm:gap-3 text-sm text-gray-400">
                   <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
                   {resp}
                 </li>
@@ -86,13 +86,13 @@ export default function JobCard({ job, index }: JobCardProps) {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4 flex items-center gap-2">
+            <h4 className="font-semibold text-white mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
               <CheckCircle2 className="w-4 h-4 text-primary" />
               Qualifications
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {job.qualifications.map((qual, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-gray-400">
+                <li key={i} className="flex items-start gap-2 sm:gap-3 text-sm text-gray-400">
                   <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
                   {qual}
                 </li>

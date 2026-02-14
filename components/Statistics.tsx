@@ -63,33 +63,33 @@ export default function Statistics() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Intro */}
-        <div className="text-center mb-20 animate-slide-up">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+        <div className="text-center mb-16 sm:mb-20 animate-slide-up px-4 sm:px-0">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
             Why Choose <span className="text-primary">Caliber?</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto">
             We combine world-class talent with strategic cost advantages to deliver
             unparalleled value for your business.
           </p>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-24">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-24">
           {stats.map((stat, index) => (
             <div
               key={stat.label}
-              className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1"
+              className="group relative p-6 sm:p-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <stat.icon className="w-24 h-24 text-primary" />
+                <stat.icon className="w-16 sm:w-24 h-16 sm:h-24 text-primary" />
               </div>
 
               <div className="relative z-10">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
                   {stat.value}
                 </div>
-                <div className="text-xl font-semibold text-primary mb-4">{stat.label}</div>
+                <div className="text-lg sm:text-xl font-semibold text-primary mb-3 sm:mb-4">{stat.label}</div>
                 <p className="text-gray-400 text-sm mb-2 leading-relaxed">{stat.description}</p>
                 <span className="text-xs text-gray-500 italic">{stat.source}</span>
               </div>
@@ -98,18 +98,18 @@ export default function Statistics() {
         </div>
 
         {/* Approach Grid */}
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {approaches.map((approach, index) => (
             <div
               key={approach.title}
-              className="bg-secondary/30 backdrop-blur-sm border border-white/5 rounded-2xl p-8 hover:border-primary/30 transition-colors"
+              className="bg-secondary/30 backdrop-blur-sm border border-white/5 rounded-2xl p-6 sm:p-8 hover:border-primary/30 transition-colors"
             >
-              <h3 className="text-xl font-bold text-white mb-3">{approach.title}</h3>
-              <p className="text-gray-400 text-sm mb-6">{approach.description}</p>
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-3">{approach.title}</h3>
+              <p className="text-gray-400 text-sm mb-4 sm:mb-6">{approach.description}</p>
 
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {approach.points.map((point, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm text-gray-300">
+                  <li key={idx} className="flex items-start gap-2 sm:gap-3 text-sm text-gray-300">
                     <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                     <span>{point}</span>
                   </li>
