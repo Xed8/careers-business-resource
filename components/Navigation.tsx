@@ -2,6 +2,7 @@
 
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { getImagePath } from '@/lib/utils';
 
 const navLinks = [
   { href: '#home', label: 'Home' },
@@ -35,7 +36,7 @@ export default function Navigation() {
           >
             <div className="relative w-12 h-12 overflow-hidden rounded-xl shadow-lg border border-white/10 group-hover:scale-105 transition-transform duration-300">
               <img
-                src="/images/logo.jpg"
+                src={getImagePath('/images/logo.jpg')}
                 alt="Caliber Business Resource Logo"
                 className="w-full h-full object-cover"
               />
@@ -107,3 +108,4 @@ export default function Navigation() {
     </header>
   );
 }
+
