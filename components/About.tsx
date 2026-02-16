@@ -1,5 +1,9 @@
-import { Building2, Target, Heart } from 'lucide-react';
+'use client';
+
+import { Building2, Target, Heart, Volume2, VolumeX } from 'lucide-react';
+import { useState, useRef } from 'react';
 import { getImagePath } from '@/lib/utils';
+
 
 const ethos = [
   { letter: 'R', text: 'Rise by lifting Entrepreneurs' },
@@ -27,6 +31,15 @@ const values = [
 ];
 
 export default function About() {
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
   return (
     <section id="about" className="py-24 bg-background relative overflow-hidden">
       {/* Decorative blobs */}
@@ -37,36 +50,52 @@ export default function About() {
 
         {/* Our Story */}
         <div className="mb-24 sm:mb-32">
-          <div className="max-w-3xl mb-8 sm:mb-12 animate-slide-up px-4 sm:px-0">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-slide-up">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8">
               Our <span className="text-primary">Story</span>
             </h2>
-            <div className="space-y-4 sm:space-y-6 text-gray-400 text-base sm:text-lg leading-relaxed">
-              <p>
-                At Caliber Business Resource Incorporated, we are dedicated to transforming the way businesses
-                approach remote staffing and operational support. CBR was founded not only from a passion for
-                business innovation, but also from a God-given desire to be a blessing to our people and our nation.
-              </p>
-              <p>
-                We specialize in building high-performing, customized teams through our micro call center offices
-                located in both the vibrant cities and the quieter, yet equally talented, heartlands of the Philippine Islands.
-              </p>
-              <p>
-                We live by the name <span className="text-primary font-bold">CALIBER</span>—not just in the level of our skill, but in the integrity of our character.
-                Everything we do is done with excellence, with a servant heart, and with the understanding that this
-                work is a stewardship entrusted to us.
-              </p>
-            </div>
-          </div>
+            
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+              {/* Text Content - Left Side */}
+              <div className="space-y-4 sm:space-y-6 text-gray-400 text-base sm:text-lg leading-relaxed">
+                <p>
+                  At Caliber Business Resource Incorporated, we are dedicated to transforming the way businesses
+                  approach remote staffing and operational support. CBR was founded not only from a passion for
+                  business innovation, but also from a God-given desire to be a blessing to our people and our nation.
+                </p>
+                <p>
+                  We specialize in building high-performing, customized teams through our micro call center offices
+                  located in both the vibrant cities and the quieter, yet equally talented, heartlands of the Philippine Islands.
+                </p>
+                <p>
+                  We live by the name <span className="text-primary font-bold">CALIBER</span>—not just in the level of our skill, but in the integrity of our character.
+                  Everything we do is done with excellence, with a servant heart, and with the understanding that this
+                  work is a stewardship entrusted to us.
+                </p>
+              </div>
 
-          <div className="relative group w-full">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500" />
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 glass-card">
-              <img
-                src={getImagePath('/images/our-story-main.png')}
-                alt="Caliber Business Resource - You Build Your Business, We Build Your Team"
-                className="w-full h-auto object-contain transform hover:scale-[1.01] transition-transform duration-700"
-              />
+              {/* Video - Right Side */}
+              <div className="relative group lg:sticky lg:top-24">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30 opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500 rounded-2xl" />
+                <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+                  <video
+                    ref={videoRef}
+                    src="/video/video.mp4"
+                    autoPlay
+                    loop
+                    muted={isMuted}
+                    playsInline
+                    className="w-full max-h-[450px] object-contain"
+                  />
+                  <button
+                    onClick={toggleMute}
+                    className="absolute bottom-4 right-4 p-2.5 rounded-full bg-black/60 hover:bg-black/80 text-white backdrop-blur-sm transition-all duration-300 border border-white/20 shadow-lg"
+                    aria-label={isMuted ? "Unmute video" : "Mute video"}
+                  >
+                    {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
