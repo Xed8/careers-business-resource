@@ -4,8 +4,10 @@ import Statistics from "@/components/Statistics";
 import Services from "@/components/Services";
 import JobListings from "@/components/JobListings";
 import About from "@/components/About";
+import SocialConnect from "@/components/SocialConnect";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import FloatingContact from "@/components/FloatingContact";
 
 export default function Home() {
   return (
@@ -20,9 +22,11 @@ export default function Home() {
       </div>
 
       <About />
+      <SocialConnect />
 
       <Footer />
       <ScrollToTop />
+      <FloatingContact />
     </main>
   );
 }

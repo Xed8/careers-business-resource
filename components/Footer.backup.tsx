@@ -1,15 +1,15 @@
 "use client";
 
-import { MapPin, Mail, Phone } from 'lucide-react';
+import { MapPin, Mail, Phone, Facebook, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer id="contact" className="bg-secondary/40 border-t border-white/5 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
 
           {/* Brand Column */}
-          <div>
+          <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
               <div className="relative w-12 h-12 overflow-hidden rounded-xl border border-white/10">
                 <img
@@ -37,6 +37,28 @@ export default function Footer() {
               <li><a href="#open-roles" className="hover:text-primary transition-colors">Careers</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
             </ul>
+          </div>
+
+          {/* Social Media - Center */}
+          <div className="lg:col-span-1">
+            <h4 className="font-bold text-white mb-6 flex items-center gap-2">
+              <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+              Follow Us
+            </h4>
+            <div className="flex flex-col gap-2 max-w-[140px]">
+              <SocialLink 
+                href="https://www.facebook.com/profile.php?id=61561838143537" 
+                icon={Facebook} 
+                label="Facebook"
+                color="bg-blue-600"
+              />
+              <SocialLink 
+                href="https://www.linkedin.com/in/caliber-business-resource-72905a31b/" 
+                icon={Linkedin} 
+                label="LinkedIn"
+                color="bg-blue-700"
+              />
+            </div>
           </div>
 
           {/* Contact */}
@@ -84,4 +106,28 @@ export default function Footer() {
   );
 }
 
-
+function SocialLink({ 
+  href, 
+  icon: Icon, 
+  label,
+  color 
+}: { 
+  href: string; 
+  icon: any; 
+  label: string;
+  color: string;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all duration-300 group"
+    >
+      <div className={`w-8 h-8 rounded-lg ${color} flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+        <Icon className="w-4 h-4" />
+      </div>
+      <span className="font-medium text-sm">{label}</span>
+    </a>
+  );
+}
