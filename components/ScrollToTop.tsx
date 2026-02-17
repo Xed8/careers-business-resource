@@ -29,11 +29,11 @@ export default function ScrollToTop() {
         });
     };
 
-    return (
+return (
         <button
             onClick={scrollToTop}
             className={`
-        fixed bottom-8 right-8 z-50
+        fixed bottom-8 right-4 sm:right-8 z-50
         w-12 h-12 sm:w-14 sm:h-14
         bg-primary text-primary-foreground
         rounded-full shadow-lg

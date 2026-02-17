@@ -61,16 +61,16 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h4 className="font-bold text-white mb-6">Stay Updated</h4>
+            <h4 className="font-bold text-white mb-4 sm:mb-6">Stay Updated</h4>
             <p className="text-gray-400 text-sm mb-4">Subscribe to our newsletter for the latest updates.</p>
-            <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col sm:flex-row gap-2" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm text-white w-full focus:outline-none focus:border-primary transition-colors"
+                className="bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white w-full focus:outline-none focus:border-primary transition-colors"
               />
-              <button className="bg-primary text-background px-4 py-2 rounded-lg font-bold hover:bg-amber-400 transition-colors">
-                Go
+              <button className="bg-primary text-background px-6 py-2.5 rounded-lg font-bold hover:bg-amber-400 transition-colors whitespace-nowrap">
+                Subscribe
               </button>
             </form>
           </div>

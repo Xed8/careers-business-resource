@@ -1,13 +1,12 @@
 "use client";
 
-import { MessageCircle, Phone, X, MessageSquare, Send, Bot } from 'lucide-react';
+import { MessageCircle, Phone, X, MessageSquare, Bot } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 export default function FloatingContact() {
   const [isVisible, setIsVisible] = useState(false);
   const [showChatbot, setShowChatbot] = useState(false);
   const [showInstruction, setShowInstruction] = useState(false);
-  const [message, setMessage] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,21 +41,6 @@ export default function FloatingContact() {
     setShowChatbot(false);
   };
 
-  const handleSendMessage = () => {
-    if (message.trim()) {
-      const messengerUrl = `https://m.me/61561838143537`;
-      window.open(messengerUrl, '_blank');
-      setMessage('');
-      setShowChatbot(false);
-    }
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      handleSendMessage();
-    }
-  };
-
   return (
     <>
       {/* Chatbot Overlay */}
@@ -66,7 +50,7 @@ export default function FloatingContact() {
 
       {/* Chatbot Window */}
       <div 
-        className={`fixed bottom-40 right-8 z-[60] w-80 transition-all duration-300 ${showChatbot ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}`}
+        className={`fixed bottom-36 sm:bottom-40 left-4 right-4 sm:left-auto sm:right-8 sm:w-80 z-[60] transition-all duration-300 ${showChatbot ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}`}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
@@ -92,7 +76,7 @@ export default function FloatingContact() {
           </div>
 
           {/* Chat Area */}
-          <div className="p-4 bg-gray-50 min-h-[120px]">
+          <div className="p-4 bg-gray-50">
             <div className="bg-white rounded-xl p-3 shadow-sm">
               <p className="text-gray-700 text-sm">
                 Hi there! 👋 Welcome to Caliber Business Resource. How can I help you today?
@@ -103,7 +87,7 @@ export default function FloatingContact() {
 
           {/* Quick Actions */}
           <div className="p-4 border-t border-gray-100">
-            <p className="text-xs text-gray-500 mb-3">Quick Options:</p>
+            <p className="text-xs text-gray-500 mb-3">Choose an option:</p>
             <div className="flex flex-col gap-2">
               <button
                 onClick={handleMessageUs}
@@ -121,55 +105,34 @@ export default function FloatingContact() {
               </a>
             </div>
           </div>
-
-          {/* Input Area */}
-          <div className="p-3 border-t border-gray-100">
-            <div className="flex items-center gap-2">
-              <input 
-                type="text" 
-                placeholder="Type a message..."
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                onKeyPress={handleKeyPress}
-                className="flex-1 px-3 py-2 bg-gray-100 rounded-full text-sm text-gray-900 placeholder-gray-500 caret-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/30"
-              />
-              <button 
-                onClick={handleSendMessage}
-                disabled={!message.trim()}
-                className={`w-8 h-8 rounded-full flex items-center justify-center text-white transition-colors ${message.trim() ? 'bg-primary hover:bg-primary/90' : 'bg-gray-300 cursor-not-allowed'}`}
-              >
-                <Send className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
         </div>
       </div>
 
       {/* Floating Contact Container */}
-      <div className={`fixed bottom-24 right-8 z-30 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
+      <div className={`fixed bottom-24 right-4 sm:right-8 z-30 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
         {/* Toggle Button with Instruction Tooltip */}
         <div className="relative">
           {/* Instruction Tooltip */}
           <div 
-            className={`absolute -top-12 right-0 bg-white text-gray-900 px-4 py-2 rounded-lg shadow-xl text-sm font-medium whitespace-nowrap transition-all duration-500 ${showInstruction && !showChatbot ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}
+            className={`absolute -top-12 right-0 bg-white text-gray-900 px-3 sm:px-4 py-2 rounded-lg shadow-xl text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-500 ${showInstruction && !showChatbot ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}
           >
             <div className="flex items-center gap-2">
-              <MessageSquare className="w-4 h-4 text-primary" />
-              <span>Message us or call for inquiries!</span>
+              <MessageSquare className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+              <span>Message us or call!</span>
             </div>
             <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-white transform rotate-45"></div>
           </div>
 
           <button
             onClick={handleToggle}
-            className={`w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 ${showChatbot ? 'bg-gray-700 rotate-45' : 'bg-primary hover:bg-primary/90'}`}
+            className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 ${showChatbot ? 'bg-gray-700 rotate-45' : 'bg-primary hover:bg-primary/90'}`}
             aria-label={showChatbot ? 'Close chatbot' : 'Open chatbot'}
           >
             {showChatbot ? (
-              <X className="w-6 h-6 text-white" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             ) : (
               <div className="flex items-center justify-center">
-                <Bot className="w-6 h-6 text-background" />
+                <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-background" />
               </div>
             )}
           </button>

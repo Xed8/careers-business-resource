@@ -3,6 +3,7 @@
 import { Building2, Target, Heart, Volume2, VolumeX } from 'lucide-react';
 import { useState, useRef } from 'react';
 import { getImagePath } from '@/lib/utils';
+import { useScrollAnimation } from '@/lib/useScrollAnimation';
 
 
 const ethos = [
@@ -34,6 +35,13 @@ export default function About() {
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  const storyAnimation = useScrollAnimation({ threshold: 0.1 });
+  const ceoAnimation = useScrollAnimation({ threshold: 0.2 });
+  const visionMissionAnimation = useScrollAnimation({ threshold: 0.2 });
+  const teamAnimation = useScrollAnimation({ threshold: 0.1 });
+  const ethosAnimation = useScrollAnimation({ threshold: 0.2 });
+  const valuesAnimation = useScrollAnimation({ threshold: 0.2 });
+
   const toggleMute = () => {
     if (videoRef.current) {
       videoRef.current.muted = !isMuted;
@@ -49,8 +57,11 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Our Story */}
-        <div className="mb-24 sm:mb-32">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-slide-up">
+        <div id="our-story" className="mb-24 sm:mb-32">
+          <div 
+            ref={storyAnimation.elementRef}
+            className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-slide-up ${storyAnimation.isVisible ? 'visible' : ''}`}
+          >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8">
               Our <span className="text-primary">Story</span>
             </h2>
@@ -100,8 +111,11 @@ export default function About() {
           </div>
         </div>
 
-        {/* Message from CEO (Redesigned as a Quote/Highlight section) */}
-        <div className="mb-24 sm:mb-32 relative">
+{/* Message from CEO (Redesigned as a Quote/Highlight section) */}
+        <div 
+          ref={ceoAnimation.elementRef}
+          className={`mb-24 sm:mb-32 relative scroll-slide-up ${ceoAnimation.isVisible ? 'visible' : ''}`}
+        >
           <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent rounded-3xl" />
           <div className="relative grid lg:grid-cols-2 gap-8 sm:gap-12 p-6 sm:p-8 md:p-12 items-center bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10">
             <div className="order-2 lg:order-1">
@@ -131,8 +145,11 @@ export default function About() {
           </div>
         </div>
 
-        {/* Vision & Mission Cards */}
-        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-24 sm:mb-32">
+{/* Vision & Mission Cards */}
+        <div 
+          ref={visionMissionAnimation.elementRef}
+          className={`grid sm:grid-cols-2 gap-4 sm:gap-6 mb-24 sm:mb-32 scroll-slide-up ${visionMissionAnimation.isVisible ? 'visible' : ''}`}
+        >
           {[
             {
               title: 'Vision',
@@ -152,9 +169,12 @@ export default function About() {
           ))}
         </div>
 
-        {/* Meet Our Team */}
+{/* Meet Our Team */}
         <div className="mb-24 sm:mb-32">
-          <div className="text-center mb-12 sm:mb-16 animate-slide-up px-4 sm:px-0">
+          <div 
+            ref={teamAnimation.elementRef}
+            className={`text-center mb-12 sm:mb-16 scroll-slide-up ${teamAnimation.isVisible ? 'visible' : ''} px-4 sm:px-0`}
+          >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
               Meet Our <span className="text-primary">Team</span>
             </h2>
@@ -163,7 +183,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8">
+          <div ref={teamAnimation.elementRef} className={`flex flex-wrap justify-center gap-8 scroll-slide-up stagger-2 ${teamAnimation.isVisible ? 'visible' : ''}`}>
             {[
               {
                 name: 'Chrissa B. Ranis',
@@ -218,8 +238,11 @@ export default function About() {
           </div>
         </div>
 
-        {/* Ethos */}
-        <div className="mb-32">
+{/* Ethos */}
+        <div 
+          ref={ethosAnimation.elementRef}
+          className={`mb-32 scroll-slide-up ${ethosAnimation.isVisible ? 'visible' : ''}`}
+        >
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Ethos</h2>
             <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
@@ -239,8 +262,11 @@ export default function About() {
           </div>
         </div>
 
-        {/* Why Join Us */}
-        <div className="relative rounded-3xl overflow-hidden bg-secondary">
+{/* Why Join Us */}
+        <div 
+          ref={valuesAnimation.elementRef}
+          className={`relative rounded-3xl overflow-hidden bg-secondary scroll-slide-up ${valuesAnimation.isVisible ? 'visible' : ''}`}
+        >
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
 
