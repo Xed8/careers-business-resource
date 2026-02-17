@@ -6,10 +6,10 @@ import { getImagePath } from '@/lib/utils';
 
 
 const ethos = [
-  { letter: 'R', text: 'Rise by lifting Entrepreneurs' },
-  { letter: 'I', text: 'Inspire Ideals through Strategy and Efficiency' },
-  { letter: 'S', text: 'Sustain Growth with Reliable Support' },
-  { letter: 'E', text: 'Empower Businesses with Exceptional Service' }
+  { letter: 'R', text: 'RISE by lifting our People & Clients' },
+  { letter: 'I', text: 'IMPACT through Strategic Execution' },
+  { letter: 'S', text: 'SUSTAINABILITY through Initiative & Reliability' },
+  { letter: 'E', text: 'EMPOWERMENT by Engagement' }
 ];
 
 const values = [
@@ -123,7 +123,7 @@ export default function About() {
             </div>
             <div className="order-1 lg:order-2">
               <img
-                src="https://static.wixstatic.com/media/f7febc_c693a9a4ad8a4397a3c44a9d13967d5f~mv2.png"
+                src="/images/profile-fit.png"
                 alt="CEO"
                 className="rounded-2xl shadow-2xl w-full max-w-md mx-auto border-4 border-white/5"
               />

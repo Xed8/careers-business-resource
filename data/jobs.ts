@@ -2,25 +2,51 @@ import { Job } from '@/types/job';
 
 export const jobs: Job[] = [
   {
-    id: 'customer-service-associate',
-    title: 'Customer Service Associate',
+    id: 'executive-assistant-australia',
+    title: 'Executive Assistant for Australian Clients',
     location: 'Office-based',
     type: 'Full-time',
     category: 'open',
-    description: 'Join our customer service team to deliver exceptional support and build lasting relationships with our clients.',
+    description: 'Provide high-level administrative support to executives and managers serving Australian clients. Manage schedules, communications, and complex projects requiring attention to detail and cultural awareness.',
     responsibilities: [
-      'Handle customer inquiries via phone, email, and chat',
-      'Provide solutions to customer issues and concerns',
-      'Maintain accurate records of customer interactions',
-      'Collaborate with team members to improve service quality'
+      'Manage executive calendars, schedule meetings, and coordinate travel arrangements',
+      'Prepare and edit correspondence, reports, and presentations',
+      'Act as liaison between executives and internal/external stakeholders',
+      'Handle confidential information with discretion and professionalism',
+      'Coordinate complex projects and initiatives across time zones'
     ],
     qualifications: [
-      'BPO experience preferred but not a must',
-      'Experience in sales or customer service, preferably for a service-oriented industry',
-      'Highly trainable and hungry for growth',
-      'Good moral character',
-      'Attendance and punctuality',
-      'Good English & comfortable in Tagalog'
+      'Bachelor\'s degree in Business Administration or related field',
+      '2+ years of executive assistant or administrative experience',
+      'Fluency in English with excellent written and verbal communication skills',
+      'Familiarity with Australian business culture and time zones',
+      'Proficiency in Microsoft Office Suite (Word, Excel, PowerPoint)',
+      'Strong organizational skills and ability to multitask'
+    ],
+    applyUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfSQDti8qa-OmnaK3SbE_-4Bqlt0wkNTr40xUntWIuIiNK4fQ/viewform',
+    featured: true
+  },
+  {
+    id: 'medical-virtual-assistant-singapore',
+    title: 'Medical Virtual Assistant for Singapore',
+    location: 'Office-based',
+    type: 'Full-time',
+    category: 'open',
+    description: 'Support healthcare professionals serving Singaporean clients with specialized medical administrative tasks. Handle patient records, appointment scheduling, and medical correspondence with precision and confidentiality.',
+    responsibilities: [
+      'Manage medical records and patient data with strict confidentiality',
+      'Schedule appointments, follow-ups, and coordinate with healthcare providers',
+      'Handle medical billing and insurance correspondence',
+      'Prepare and process medical forms and documentation',
+      'Communicate with patients regarding appointments and follow-up care'
+    ],
+    qualifications: [
+      'Certificate or degree in Medical Administration or related field',
+      'Experience in medical office administration or healthcare settings',
+      'Understanding of medical terminology and healthcare processes',
+      'Familiarity with Singapore healthcare regulations and practices',
+      'Proficiency in medical software and electronic health records systems',
+      'Strong attention to detail and commitment to patient confidentiality'
     ],
     applyUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfSQDti8qa-OmnaK3SbE_-4Bqlt0wkNTr40xUntWIuIiNK4fQ/viewform',
     featured: true
