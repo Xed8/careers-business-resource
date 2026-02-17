@@ -80,7 +80,7 @@ export default function About() {
                 <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl">
                   <video
                     ref={videoRef}
-                    src="/video/video.mp4"
+                    src={getImagePath('/video/video.mp4')}
                     autoPlay
                     loop
                     muted={isMuted}
@@ -123,7 +123,7 @@ export default function About() {
             </div>
             <div className="order-1 lg:order-2">
               <img
-                src="/images/profile-fit.png"
+                src={getImagePath('/images/profile-fit.png')}
                 alt="CEO"
                 className="rounded-2xl shadow-2xl w-full max-w-md mx-auto border-4 border-white/5"
               />

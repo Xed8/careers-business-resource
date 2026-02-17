@@ -8,6 +8,7 @@ import SocialConnect from "@/components/SocialConnect";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import FloatingContact from "@/components/FloatingContact";
+import { getImagePath } from "@/lib/utils";
 
 export default function Home() {
   return (
@@ -33,9 +34,9 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30 opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500 rounded-2xl" />
             
             <video
-              src="/video/company_culture.mp4"
+              src={getImagePath('/video/company_culture.mp4')}
               className="w-full aspect-video object-cover"
-              poster="/images/our-story-main.png"
+              poster={getImagePath('/images/our-story-main.png')}
               controls
               preload="metadata"
               style={{ width: '100%', height: 'auto' }}
