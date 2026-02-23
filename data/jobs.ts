@@ -23,7 +23,7 @@ export const jobs: Job[] = [
       'Proficiency in Microsoft Office Suite (Word, Excel, PowerPoint)',
       'Strong organizational skills and ability to multitask'
     ],
-    applyUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfSQDti8qa-OmnaK3SbE_-4Bqlt0wkNTr40xUntWIuIiNK4fQ/viewform',
+    applyUrl: 'https://forms.gle/2w6CKLNdJGGdwHiz6',
     featured: true
   },
   {
@@ -48,7 +48,7 @@ export const jobs: Job[] = [
       'Proficiency in medical software and electronic health records systems',
       'Strong attention to detail and commitment to patient confidentiality'
     ],
-    applyUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfSQDti8qa-OmnaK3SbE_-4Bqlt0wkNTr40xUntWIuIiNK4fQ/viewform',
+    applyUrl: 'https://forms.gle/2w6CKLNdJGGdwHiz6',
     featured: true
   },
   {
@@ -71,7 +71,7 @@ export const jobs: Job[] = [
       'Strong communication and creative problem-solving skills',
       'Attention to detail and ability to work independently or in a team'
     ],
-    applyUrl: 'https://forms.gle/XvhnhTydmmFRyEtF6',
+    applyUrl: 'https://forms.gle/2w6CKLNdJGGdwHiz6',
     featured: true
   },
   {
@@ -91,7 +91,7 @@ export const jobs: Job[] = [
       'Excellent communication and interpersonal skills',
       'Proficient in MS Office Suite or similar programs'
     ],
-    applyUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScwXCz-UqjNT4sXC5uk-HY3HdPEkc1W4NTmKPU-JoyaQrhXFA/viewform'
+    applyUrl: 'https://forms.gle/2w6CKLNdJGGdwHiz6'
   },
   {
     id: 'tech-support',
@@ -112,7 +112,7 @@ export const jobs: Job[] = [
       'Ability to work independently and manage multiple tasks simultaneously',
       'Problem-solving skills and a methodical approach to troubleshooting'
     ],
-    applyUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScwXCz-UqjNT4sXC5uk-HY3HdPEkc1W4NTmKPU-JoyaQrhXFA/viewform'
+    applyUrl: 'https://forms.gle/2w6CKLNdJGGdwHiz6'
   },
   {
     id: 'podcast-editors',
@@ -132,7 +132,7 @@ export const jobs: Job[] = [
       'Keen ear for audio quality and deep understanding of editing techniques',
       'Knowledge of noise reduction, equalization, compression, and normalization'
     ],
-    applyUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScwXCz-UqjNT4sXC5uk-HY3HdPEkc1W4NTmKPU-JoyaQrhXFA/viewform'
+    applyUrl: 'https://forms.gle/2w6CKLNdJGGdwHiz6'
   },
   {
     id: 'accounting-bookkeeping',
@@ -154,7 +154,7 @@ export const jobs: Job[] = [
       'Excellent attention to detail and accuracy',
       'Proficient in Microsoft Office Suite (Excel is a must)'
     ],
-    applyUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScwXCz-UqjNT4sXC5uk-HY3HdPEkc1W4NTmKPU-JoyaQrhXFA/viewform'
+    applyUrl: 'https://forms.gle/2w6CKLNdJGGdwHiz6'
   },
   {
     id: 'customer-service-pooling',
@@ -176,7 +176,7 @@ export const jobs: Job[] = [
       'Team player',
       'Positive attitude'
     ],
-    applyUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScwXCz-UqjNT4sXC5uk-HY3HdPEkc1W4NTmKPU-JoyaQrhXFA/viewform'
+    applyUrl: 'https://forms.gle/2w6CKLNdJGGdwHiz6'
   },
   {
     id: 'data-entry-admin',
@@ -202,7 +202,7 @@ export const jobs: Job[] = [
       'Excellent communication and interpersonal skills',
       'Proficient in Microsoft Office Suite'
     ],
-    applyUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScwXCz-UqjNT4sXC5uk-HY3HdPEkc1W4NTmKPU-JoyaQrhXFA/viewform'
+    applyUrl: 'https://forms.gle/2w6CKLNdJGGdwHiz6'
   },
   {
     id: 'recruiters',
@@ -228,6 +228,6 @@ export const jobs: Job[] = [
       'Proficient in applicant tracking systems (ATS)',
       'Keen eye for detail and strong work ethic'
     ],
-    applyUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScwXCz-UqjNT4sXC5uk-HY3HdPEkc1W4NTmKPU-JoyaQrhXFA/viewform'
+    applyUrl: 'https://forms.gle/2w6CKLNdJGGdwHiz6'
   }
 ];

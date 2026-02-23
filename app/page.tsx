@@ -136,10 +136,10 @@ export default function Home() {
           
           <div className="rounded-2xl overflow-hidden border border-white/10 shadow-xl max-w-4xl mx-auto">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.876!2d123.8528!3d9.6467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a9ef2ff7e1b3f7%3A0x8c9c9c9c9c9c9c9c!2sVenancio+P.+Inting+Ave%2C+Tagbilaran+City%2C+Bohol!5e0!3m2!1sen!2sph!4v1600000000000!5m2!1sen!2sph"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.876!2d123.869761!3d9.631805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMzcnNTQuNSJOIDEyM8KwNTInMTEuMSJF!5e0!3m2!1sen!2sph!4v1600000000000!5m2!1sen!2sph"
               width="100%"
-              height="300"
-              className="sm:h-[400px]"
+              height="250"
+              className="h-[250px] sm:h-[350px] md:h-[400px]"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
@@ -149,8 +149,8 @@ export default function Home() {
           </div>
           
           <div className="mt-8 text-center">
-            <div className="inline-flex items-start sm:items-center gap-2 sm:gap-3 bg-white/5 backdrop-blur-sm rounded-lg px-4 sm:px-6 py-3 border border-white/10 text-left sm:text-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-primary shrink-0 mt-0.5 sm:mt-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 bg-white/5 backdrop-blur-sm rounded-lg px-4 sm:px-6 py-3 border border-white/10 text-center sm:text-center max-w-xl mx-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-primary shrink-0 mx-auto sm:mx-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M20 10c0-4.418-3.582-8-8-8s-8 3.582-8 8c0 1.621.497 3.142 1.358 4.412l-.78 3.538a.5.5 0 0 0 .654.654l3.538-.78A7.96 7.96 0 0 0 12 18c4.418 0 8-3.582 8-8z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
