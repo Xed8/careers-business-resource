@@ -111,7 +111,7 @@
   /* Scroll-triggered animations */
   .scroll-fade-in {
     opacity: 0;
-    transition: opacity 0.6s ease-out;
+    transition: opacity 0.4s ease-out;
   }
 
   .scroll-fade-in.visible {
@@ -120,8 +120,15 @@
 
   .scroll-slide-up {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+
+  @media (max-width: 640px) {
+    .scroll-slide-up {
+      transform: translateY(10px);
+      transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    }
   }
 
   .scroll-slide-up.visible {
@@ -131,8 +138,8 @@
 
   .scroll-scale-in {
     opacity: 0;
-    transform: scale(0.95);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transform: scale(0.97);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
   }
 
   .scroll-scale-in.visible {
@@ -175,11 +182,20 @@
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeIn 0.5s ease-out forwards;
 }
 
 .animate-slide-up {
-  animation: slideUp 0.8s ease-out forwards;
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+@media (max-width: 640px) {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out forwards;
+  }
 }
 
 @keyframes fadeIn {
@@ -204,9 +220,18 @@
   }
 }
 /* Stagger animation delays */
-.stagger-1 { animation-delay: 0.1s; transition-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; transition-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; transition-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; transition-delay: 0.4s; }
-.stagger-5 { animation-delay: 0.5s; transition-delay: 0.5s; }
-.stagger-6 { animation-delay: 0.6s; transition-delay: 0.6s; }
+.stagger-1 { animation-delay: 0.05s; transition-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; transition-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; transition-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; transition-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; transition-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; transition-delay: 0.3s; }
+
+@media (max-width: 640px) {
+  .stagger-1 { animation-delay: 0s; transition-delay: 0s; }
+  .stagger-2 { animation-delay: 0.05s; transition-delay: 0.05s; }
+  .stagger-3 { animation-delay: 0.1s; transition-delay: 0.1s; }
+  .stagger-4 { animation-delay: 0.1s; transition-delay: 0.1s; }
+  .stagger-5 { animation-delay: 0.15s; transition-delay: 0.15s; }
+  .stagger-6 { animation-delay: 0.15s; transition-delay: 0.15s; }
+}
