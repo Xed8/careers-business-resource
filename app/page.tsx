@@ -6,7 +6,7 @@ import Statistics from "@/components/Statistics";
 import Services from "@/components/Services";
 import JobListings from "@/components/JobListings";
 import About from "@/components/About";
-import SocialConnect from "@/components/SocialConnect";
+import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import FloatingContact from "@/components/FloatingContact";
@@ -119,8 +119,6 @@ export default function Home() {
 
       <About />
       
-      <SocialConnect />
-
       {/* Google Maps Section */}
       <section 
         ref={mapsAnimation.elementRef}
@@ -159,6 +157,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <ContactForm />
 
       <Footer />
       <ScrollToTop />
