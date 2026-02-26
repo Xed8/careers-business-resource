@@ -11,7 +11,7 @@ export default function FloatingContact() {
   useEffect(() => {
     const handleScroll = () => {
       const shouldShow = window.scrollY > 300;
-      
+
       if (shouldShow && !isVisible) {
         setIsVisible(true);
         setShowInstruction(true);
@@ -20,7 +20,7 @@ export default function FloatingContact() {
         setShowInstruction(false);
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isVisible]);
@@ -49,7 +49,7 @@ export default function FloatingContact() {
       )}
 
       {/* Chatbot Window */}
-      <div 
+      <div
         className={`fixed bottom-36 sm:bottom-40 left-4 right-4 sm:left-auto sm:right-8 sm:w-80 z-[60] transition-all duration-300 ${showChatbot ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'}`}
         onClick={(e) => e.stopPropagation()}
       >
@@ -66,7 +66,7 @@ export default function FloatingContact() {
                   <p className="text-xs text-white/80">Always here to help</p>
                 </div>
               </div>
-              <button 
+              <button
                 onClick={handleCloseChatbot}
                 className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
               >
@@ -113,7 +113,7 @@ export default function FloatingContact() {
         {/* Toggle Button with Instruction Tooltip */}
         <div className="relative">
           {/* Instruction Tooltip */}
-          <div 
+          <div
             className={`absolute -top-12 right-0 bg-white text-gray-900 px-3 sm:px-4 py-2 rounded-lg shadow-xl text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-500 ${showInstruction && !showChatbot ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}
           >
             <div className="flex items-center gap-2">
@@ -132,7 +132,7 @@ export default function FloatingContact() {
               <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             ) : (
               <div className="flex items-center justify-center">
-                <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-background" />
+                <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-background" />
               </div>
             )}
           </button>

@@ -1,6 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
+import ObfuscatedEmail from "./ObfuscatedEmail";
+
+// --- Security: Sanitization Utilities ---
+const stripHtmlTags = (input: string): string => input.replace(/<[^>]*>/g, '');
+const stripScriptPatterns = (input: string): string => input.replace(/<script[^>]*>.*?<\/script>/gi, '').replace(/javascript:/gi, '').replace(/on\w+\s*=/gi, '');
+const sanitizeInput = (input: string): string => stripScriptPatterns(stripHtmlTags(input.trim()));
+
+const MAX_LENGTHS: Record<string, number> = {
+  firstName: 100,
+  lastName: 100,
+  companyName: 150,
+  phoneNumber: 30,
+  email: 254,
+  staffCount: 10,
+  message: 1000,
+};
+
+const SUBMISSION_COOLDOWN_MS = 15000; // 15 second cooldown between submissions
 
 const companySizes = [
   "1-10 employees",
@@ -169,24 +187,41 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
+  // --- Phase 2: Anti-Spam ---
+  const [honeypot, setHoneypot] = useState(""); // Bot trap - should remain empty
+  const lastSubmitTime = useRef<number>(0);
+  const [cooldownRemaining, setCooldownRemaining] = useState(0);
+
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
-    if (!formData.firstName.trim()) {
+    const firstName = sanitizeInput(formData.firstName);
+    const lastName = sanitizeInput(formData.lastName);
+    const companyName = sanitizeInput(formData.companyName);
+    const email = formData.email.trim();
+    const message = sanitizeInput(formData.message);
+
+    if (!firstName) {
       newErrors.firstName = "First name is required";
+    } else if (firstName.length > MAX_LENGTHS.firstName) {
+      newErrors.firstName = `First name must be under ${MAX_LENGTHS.firstName} characters`;
     }
 
-    if (!formData.lastName.trim()) {
+    if (!lastName) {
       newErrors.lastName = "Last name is required";
+    } else if (lastName.length > MAX_LENGTHS.lastName) {
+      newErrors.lastName = `Last name must be under ${MAX_LENGTHS.lastName} characters`;
     }
 
-    if (!formData.companyName.trim()) {
+    if (!companyName) {
       newErrors.companyName = "Company name is required";
+    } else if (companyName.length > MAX_LENGTHS.companyName) {
+      newErrors.companyName = `Company name must be under ${MAX_LENGTHS.companyName} characters`;
     }
 
-    if (!formData.email.trim()) {
+    if (!email) {
       newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
       newErrors.email = "Please enter a valid email address";
     }
 
@@ -198,37 +233,70 @@ export default function ContactForm() {
       newErrors.country = "Please select a country";
     }
 
-    if (!formData.message.trim()) {
+    if (!message) {
       newErrors.message = "Message is required";
+    } else if (message.length > MAX_LENGTHS.message) {
+      newErrors.message = `Message must be under ${MAX_LENGTHS.message} characters`;
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (
+  const handleChange = useCallback((
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const maxLen = MAX_LENGTHS[name];
+    const clampedValue = maxLen ? value.slice(0, maxLen) : value;
+    setFormData((prev) => ({ ...prev, [name]: clampedValue }));
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
-  };
+  }, [errors]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitStatus("idle");
+
+    // Phase 2: Honeypot check — if filled, silently reject
+    if (honeypot) {
+      setSubmitStatus("success"); // Fake success to not alert bots
+      return;
+    }
+
+    // Phase 2: Cooldown check
+    const now = Date.now();
+    const elapsed = now - lastSubmitTime.current;
+    if (elapsed < SUBMISSION_COOLDOWN_MS) {
+      const remaining = Math.ceil((SUBMISSION_COOLDOWN_MS - elapsed) / 1000);
+      setCooldownRemaining(remaining);
+      return;
+    }
 
     if (!validateForm()) {
       return;
     }
 
     setIsSubmitting(true);
+    lastSubmitTime.current = Date.now();
 
     try {
+      // Sanitize all text inputs before submission
+      const sanitizedData = {
+        ...formData,
+        firstName: sanitizeInput(formData.firstName),
+        lastName: sanitizeInput(formData.lastName),
+        companyName: sanitizeInput(formData.companyName),
+        message: sanitizeInput(formData.message),
+        email: formData.email.trim(),
+        phoneNumber: formData.phoneNumber.trim(),
+      };
+
       await new Promise((resolve) => setTimeout(resolve, 1500));
+      console.log('Sanitized submission:', sanitizedData);
       setSubmitStatus("success");
+      setCooldownRemaining(0);
       setFormData({
         firstName: "",
         lastName: "",
@@ -276,8 +344,29 @@ export default function ContactForm() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 mt-8">
           <div className="lg:col-span-2 space-y-6">
+            <div className="bg-primary/10 border border-primary/30 rounded-2xl p-6 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-[40px] pointer-events-none" />
+              <h3 className="text-lg font-bold text-primary mb-2 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Looking for a Job?
+              </h3>
+              <p className="text-sm text-primary/80 mb-4">
+                This form is for business partnerships and client inquiries.
+              </p>
+              <a href="#open-roles" className="text-sm font-bold text-white hover:text-primary transition-colors flex items-center gap-1 w-max">
+                View Open Roles
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
               <h3 className="text-xl font-bold text-white mb-6">Get In Touch</h3>
 
@@ -322,9 +411,11 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Email Us</p>
-                    <a href="mailto:info@caliberbusinessresource.com" className="text-white hover:text-primary transition-colors">
-                      info@caliberbusinessresource.com
-                    </a>
+                    <ObfuscatedEmail
+                      user="info"
+                      domain="caliberbusinessresource.com"
+                      className="text-white hover:text-primary transition-colors"
+                    />
                   </div>
                 </div>
               </div>
@@ -409,7 +500,20 @@ export default function ContactForm() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+                  {/* Phase 2: Honeypot — hidden field to catch bots */}
+                  <div className="absolute opacity-0 top-0 left-0 h-0 w-0 -z-10 overflow-hidden" aria-hidden="true">
+                    <label htmlFor="website">Leave this empty</label>
+                    <input
+                      type="text"
+                      id="website"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                    />
+                  </div>
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="firstName" className={labelClasses}>
@@ -423,6 +527,7 @@ export default function ContactForm() {
                         onChange={handleChange}
                         className={`${inputClasses} ${errors.firstName ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20' : ''}`}
                         placeholder="John"
+                        maxLength={MAX_LENGTHS.firstName}
                       />
                       {errors.firstName && <p className={errorClasses}>{errors.firstName}</p>}
                     </div>
@@ -439,6 +544,7 @@ export default function ContactForm() {
                         onChange={handleChange}
                         className={`${inputClasses} ${errors.lastName ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20' : ''}`}
                         placeholder="Doe"
+                        maxLength={MAX_LENGTHS.lastName}
                       />
                       {errors.lastName && <p className={errorClasses}>{errors.lastName}</p>}
                     </div>
@@ -457,6 +563,7 @@ export default function ContactForm() {
                         onChange={handleChange}
                         className={`${inputClasses} ${errors.companyName ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20' : ''}`}
                         placeholder="Acme Inc."
+                        maxLength={MAX_LENGTHS.companyName}
                       />
                       {errors.companyName && <p className={errorClasses}>{errors.companyName}</p>}
                     </div>
@@ -510,6 +617,7 @@ export default function ContactForm() {
                         onChange={handleChange}
                         className={`${inputClasses} ${errors.email ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20' : ''}`}
                         placeholder="john@company.com"
+                        maxLength={MAX_LENGTHS.email}
                       />
                       {errors.email && <p className={errorClasses}>{errors.email}</p>}
                     </div>
@@ -587,13 +695,23 @@ export default function ContactForm() {
                       rows={5}
                       className={`${inputClasses} resize-none ${errors.message ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20' : ''}`}
                       placeholder="Tell us about your needs..."
+                      maxLength={MAX_LENGTHS.message}
                     />
+                    <p className="text-gray-600 text-xs text-right mt-1">
+                      {formData.message.length}/{MAX_LENGTHS.message}
+                    </p>
                     {errors.message && <p className={errorClasses}>{errors.message}</p>}
                   </div>
 
+                  {cooldownRemaining > 0 && (
+                    <p className="text-yellow-400 text-sm text-center">
+                      Please wait {cooldownRemaining} seconds before submitting again.
+                    </p>
+                  )}
+
                   <button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || cooldownRemaining > 0}
                     className="w-full bg-primary hover:bg-primary/90 disabled:bg-primary/50 disabled:cursor-not-allowed text-background px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-[0_0_30px_-5px_rgba(255,193,7,0.5)] transform hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
@@ -623,7 +741,7 @@ export default function ContactForm() {
 
                   <p className="text-center text-gray-500 text-sm">
                     By submitting this form, you agree to our{" "}
-                    <a href="#" className="text-primary hover:underline">Privacy Policy</a>
+                    <a href="/privacy-policy" className="text-primary hover:underline">Privacy Policy</a>
                   </p>
                 </form>
               )}

@@ -2,6 +2,7 @@
 
 import { MapPin, Mail, Phone } from 'lucide-react';
 import { getImagePath } from '@/lib/utils';
+import ObfuscatedEmail from './ObfuscatedEmail';
 
 export default function Footer() {
   return (
@@ -49,7 +50,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <a href="mailto:info@caliberbusinessresource.com" className="hover:text-white transition-colors">info@caliberbusinessresource.com</a>
+                <ObfuscatedEmail
+                  user="info"
+                  domain="caliberbusinessresource.com"
+                  className="hover:text-white transition-colors"
+                />
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
@@ -62,15 +67,22 @@ export default function Footer() {
           <div>
             <h4 className="heading-3 mb-6">Legal</h4>
             <ul className="space-y-4 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
+              <li><a href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms-of-use" className="hover:text-primary transition-colors">Terms of Use</a></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Caliber Business Resource. All rights reserved.</p>
+        <div className="pt-8 border-t border-border space-y-4">
+          {/* Phase 7: Fraud Protection Notice */}
+          <p className="text-center text-xs text-gray-500">
+            Caliber Business Resource does not charge applicants any recruitment fees. Please report suspicious communications to{' '}
+            <ObfuscatedEmail user="info" domain="caliberbusinessresource.com" className="text-primary hover:underline" />.
+          </p>
+          <p className="text-center text-sm text-muted-foreground">
+            &copy; {new Date().getFullYear()} Caliber Business Resource. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

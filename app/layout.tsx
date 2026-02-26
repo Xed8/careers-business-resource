@@ -39,6 +39,10 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        {/* Phase 4: Security Headers via Meta Tags */}
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta httpEquiv="X-Frame-Options" content="SAMEORIGIN" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
       </head>
       <body className="font-sans antialiased">{children}</body>
     </html>

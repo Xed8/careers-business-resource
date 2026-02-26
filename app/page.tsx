@@ -8,8 +8,6 @@ import Services from "@/components/Services";
 import HowItWorks from "@/components/HowItWorks";
 import JobListings from "@/components/JobListings";
 import About from "@/components/About";
-import Testimonials from "@/components/Testimonials";
-import CaseStudies from "@/components/CaseStudies";
 import Differentiation from "@/components/Differentiation";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
@@ -113,7 +111,7 @@ export default function Home() {
 
           <div className="mt-10 sm:mt-12 text-center max-w-3xl mx-auto px-2">
             <blockquote className="text-base sm:text-lg md:text-xl text-gray-300 italic border-l-4 border-primary pl-4 sm:pl-6 py-2 text-left sm:text-center">
-              "At Caliber, we don't just work together, we grow together. Every team member brings unique talents that contribute to our collective success."
+              "Caliber Business Resource is not just a company—it’s a testimony of faith in action, where excellence and purpose go hand in hand."
             </blockquote>
             <p className="mt-3 sm:mt-4 text-primary font-bold text-sm sm:text-base">- Chrissa B. Ranis, Founder & CEO</p>
           </div>
@@ -166,8 +164,6 @@ export default function Home() {
       </section>
 
       <Differentiation />
-      <Testimonials />
-      <CaseStudies />
       <ContactForm />
 
       <Footer />

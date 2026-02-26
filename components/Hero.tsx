@@ -47,24 +47,24 @@ export default function Hero() {
             </span>
           </a>
           <a
-            href="#connect"
+            href="#open-roles"
             className="btn-secondary w-full sm:w-auto"
           >
-            Request Talent Estimate
+            Apply for a Job
           </a>
         </div>
 
         {/* Stats / Trust Indicators - Per design system */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 pt-8 border-t border-white/10 w-full max-w-5xl">
           {[
-            { label: 'Years Experience', value: '5+' },
-            { label: 'Talent Placed', value: '500+' },
-            { label: 'Retention Rate', value: '92%' },
-            { label: 'Time Zone', value: 'Aligned' },
+            { label: 'Leadership', value: '15+ Yrs' },
+            { label: 'Facility Type', value: 'Micro-Center' },
+            { label: 'Max Cost Savings', value: '80%' },
+            { label: 'Talent Vetting', value: 'Multi-Stage' },
           ].map((stat, idx) => (
             <div key={idx} className="flex flex-col items-center">
-              <span className="text-3xl sm:text-4xl font-bold text-white mb-2">{stat.value}</span>
-              <span className="text-sm text-gray-500 uppercase tracking-wider">{stat.label}</span>
+              <span className="text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-2 whitespace-nowrap">{stat.value}</span>
+              <span className="text-sm text-gray-500 uppercase tracking-wider text-center">{stat.label}</span>
             </div>
           ))}
         </div>

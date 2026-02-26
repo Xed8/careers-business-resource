@@ -2,26 +2,58 @@
 
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import { getImagePath } from '@/lib/utils';
 
 const navLinks = [
   { href: '#home', label: 'Home' },
   { href: '#services', label: 'Services' },
   { href: '#our-story', label: 'About Us' },
-  { href: '#testimonials', label: 'Testimonials' },
   { href: '#connect', label: 'Contact' },
 ];
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Setup IntersectionObserver for scroll spy
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: '-30% 0px -30% 0px' // Trigger when section crosses middle part of screen
+      }
+    );
+
+    // Observe all sections defined in navLinks
+    navLinks.forEach((link) => {
+      const id = link.href.substring(1);
+      const elements = document.getElementsByTagName('section'); // We might need to observe sections by id instead of getElementById if they lack id but we know they have IDs
+      const element = document.getElementById(id);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -48,11 +80,28 @@ export default function Navigation() {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
+
+    if (!isHomePage) {
+      // Navigate to the homepage with the hash attached, allowing Next to scroll.
+      router.push(`/${href}`);
+      return;
+    }
+
     const element = document.querySelector(href);
     if (element) {
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      let offsetPosition;
+
+      if (href === '#open-roles') {
+        const viewportHeight = window.innerHeight;
+        const elementHeight = element.clientHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        offsetPosition = elementTop + window.pageYOffset - (viewportHeight / 2) + (elementHeight / 2);
+      } else {
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      }
+
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
@@ -91,17 +140,20 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-medium text-gray-300 hover:text-primary transition-colors relative group"
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = isHomePage && activeSection === link.href.substring(1);
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`text-sm font-medium transition-colors relative group ${isActive ? 'text-primary' : 'text-gray-300 hover:text-primary'}`}
+                >
+                  {link.label}
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                </a>
+              );
+            })}
             <a
               href="#open-roles"
               onClick={(e) => handleNavClick(e, '#open-roles')}
@@ -135,16 +187,22 @@ export default function Navigation() {
           }`}
       >
         <div className="p-4 sm:p-6 space-y-1 overflow-y-auto max-h-[calc(100vh-72px)]">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="block text-gray-300 hover:text-primary hover:bg-white/5 transition-colors font-medium px-4 py-3.5 rounded-xl text-base"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = isHomePage && activeSection === link.href.substring(1);
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={`block transition-colors font-medium px-4 py-3.5 rounded-xl text-base ${isActive
+                  ? 'bg-primary/10 text-primary'
+                  : 'text-gray-300 hover:text-primary hover:bg-white/5'
+                  }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
           <div className="pt-3">
             <a
               href="#open-roles"
