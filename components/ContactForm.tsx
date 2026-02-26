@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useScrollAnimation } from "@/lib/useScrollAnimation";
 
 const companySizes = [
   "1-10 employees",
@@ -170,10 +169,6 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const headerAnimation = useScrollAnimation({ threshold: 0.1 });
-  const formAnimation = useScrollAnimation({ threshold: 0.2 });
-  const infoAnimation = useScrollAnimation({ threshold: 0.2 });
-
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
@@ -267,30 +262,25 @@ export default function ContactForm() {
   const errorClasses = "text-red-400 text-xs mt-1";
 
   return (
-    <section id="connect" className="py-24 bg-background relative overflow-hidden">
+    <section id="connect" className="pt-8 sm:pt-12 pb-24 bg-background relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div 
-          ref={headerAnimation.elementRef}
-          className={`text-center mb-16 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
-        >
+        <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Let&apos;s <span className="text-primary">Connect</span>
+            Ready to Scale <span className="text-primary">With Confidence?</span>
           </h2>
           <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">
-            We Are Here To Help. Send us a message and we&apos;ll get back to you as soon as possible.
+            Partner with Caliber Business Resource for premium managed staffing solutions.<br />
+            Reduce overhead while improving your operational efficiency.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
-          <div 
-            ref={infoAnimation.elementRef}
-            className={`lg:col-span-2 space-y-6 scroll-slide-up ${infoAnimation.isVisible ? 'visible' : ''}`}
-          >
+          <div className="lg:col-span-2 space-y-6">
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
               <h3 className="text-xl font-bold text-white mb-6">Get In Touch</h3>
-              
+
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center shrink-0">
@@ -368,7 +358,7 @@ export default function ContactForm() {
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                     <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z"/>
+                      <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z" />
                     </svg>
                   </div>
                   <div>
@@ -386,7 +376,7 @@ export default function ContactForm() {
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-700 to-blue-800 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                     <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.5,2h-17A1.5,1.5,0,0,0,2,3.5v17A1.5,1.5,0,0,0,3.5,22h17a1.5,1.5,0,0,0,1.5-1.5v-17A1.5,1.5,0,0,0,20.5,2ZM8,19H5v-9h3ZM6.5,8.25A1.75,1.75,0,1,1,8.25,6.5,1.75,1.75,0,0,1,6.5,8.25ZM19,19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74,1.74,0,0,0,13,14.19a.66.66,0,0,0,.14.03h.14V13h-3v-9h3V9A3,3,0,0,1,15.46,6.06c1.58,0,2.54,1,2.54,2.93Z"/>
+                      <path d="M20.5,2h-17A1.5,1.5,0,0,0,2,3.5v17A1.5,1.5,0,0,0,3.5,22h17a1.5,1.5,0,0,0,1.5-1.5v-17A1.5,1.5,0,0,0,20.5,2ZM8,19H5v-9h3ZM6.5,8.25A1.75,1.75,0,1,1,8.25,6.5,1.75,1.75,0,0,1,6.5,8.25ZM19,19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74,1.74,0,0,0,13,14.19a.66.66,0,0,0,.14.03h.14V13h-3v-9h3V9A3,3,0,0,1,15.46,6.06c1.58,0,2.54,1,2.54,2.93Z" />
                     </svg>
                   </div>
                   <div>
@@ -398,10 +388,7 @@ export default function ContactForm() {
             </div>
           </div>
 
-          <div 
-            ref={formAnimation.elementRef}
-            className={`lg:col-span-3 scroll-slide-up ${formAnimation.isVisible ? 'visible' : ''}`}
-          >
+          <div className="lg:col-span-3">
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10 shadow-2xl">
               {submitStatus === "success" ? (
                 <div className="text-center py-12">

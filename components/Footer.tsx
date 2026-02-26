@@ -24,26 +24,25 @@ export default function Footer() {
                 <p className="text-primary text-xs uppercase tracking-wider">Business Resource</p>
               </div>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="body-text text-sm">
               Empowering businesses with world-class remote talent. Your growth is our mission.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-white mb-6">Company</h4>
-            <ul className="space-y-4 text-sm text-gray-400">
+            <h4 className="heading-3 mb-6">Company</h4>
+            <ul className="space-y-4 text-sm text-muted-foreground">
               <li><a href="#about" className="hover:text-primary transition-colors">About Us</a></li>
               <li><a href="#services" className="hover:text-primary transition-colors">Our Services</a></li>
               <li><a href="#open-roles" className="hover:text-primary transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold text-white mb-6">Contact</h4>
-            <ul className="space-y-4 text-sm text-gray-400">
+            <h4 className="heading-3 mb-6">Contact</h4>
+            <ul className="space-y-4 text-sm text-muted-foreground">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary shrink-0" />
                 <span>Ruberen Complex, Tagbilaran City, Bohol</span>
@@ -59,25 +58,18 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Legal Links */}
           <div>
-            <h4 className="font-bold text-white mb-4 sm:mb-6">Stay Updated</h4>
-            <p className="text-gray-400 text-sm mb-4">Subscribe to our newsletter for the latest updates.</p>
-            <form className="flex flex-col sm:flex-row gap-2" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white w-full focus:outline-none focus:border-primary transition-colors"
-              />
-              <button className="bg-primary text-background px-6 py-2.5 rounded-lg font-bold hover:bg-amber-400 transition-colors whitespace-nowrap">
-                Subscribe
-              </button>
-            </form>
+            <h4 className="heading-3 mb-6">Legal</h4>
+            <ul className="space-y-4 text-sm text-muted-foreground">
+              <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
+            </ul>
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-white/5 text-center text-sm text-gray-500">
+        <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Caliber Business Resource. All rights reserved.</p>
         </div>
       </div>

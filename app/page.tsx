@@ -2,10 +2,15 @@
 
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import Credibility from "@/components/Credibility";
 import Statistics from "@/components/Statistics";
 import Services from "@/components/Services";
+import HowItWorks from "@/components/HowItWorks";
 import JobListings from "@/components/JobListings";
 import About from "@/components/About";
+import Testimonials from "@/components/Testimonials";
+import CaseStudies from "@/components/CaseStudies";
+import Differentiation from "@/components/Differentiation";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -22,13 +27,15 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Navigation />
       <Hero />
+      <Credibility />
       <Statistics />
       <Services />
+      <HowItWorks />
 
       {/* Company Culture Section */}
       <div className="py-24 bg-background relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div 
+          <div
             ref={cultureAnimation.elementRef}
             className={`text-center mb-16 scroll-slide-up ${cultureAnimation.isVisible ? 'visible' : ''}`}
           >
@@ -39,13 +46,13 @@ export default function Home() {
               Experience what makes Caliber Business Resource a great place to work
             </p>
           </div>
-          
-          <div 
+
+          <div
             ref={cultureAnimation.elementRef}
             className={`relative group rounded-2xl overflow-hidden border border-white/10 shadow-2xl max-w-4xl mx-auto bg-black scroll-slide-up stagger-1 ${cultureAnimation.isVisible ? 'visible' : ''}`}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30 opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500 rounded-2xl" />
-            
+
             <video
               src={getImagePath('/video/company_culture.mp4')}
               className="w-full aspect-video object-cover"
@@ -55,9 +62,9 @@ export default function Home() {
               style={{ width: '100%', height: 'auto' }}
             />
           </div>
-          
+
           {/* Culture Details */}
-          <div 
+          <div
             ref={cultureCardsAnimation.elementRef}
             className={`mt-12 sm:mt-16 grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-5xl mx-auto scroll-slide-up ${cultureCardsAnimation.isVisible ? 'visible' : ''}`}
           >
@@ -75,7 +82,7 @@ export default function Home() {
                 We believe in the power of working together. Our collaborative environment fosters innovation and shared success.
               </p>
             </div>
-            
+
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-white/10 text-center">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 sm:w-6 sm:h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -87,7 +94,7 @@ export default function Home() {
                 Continuous learning is at our core. We invest in our people's professional development and career advancement.
               </p>
             </div>
-            
+
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-white/10 text-center sm:col-span-2 md:col-span-1">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 sm:w-6 sm:h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -103,7 +110,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          
+
           <div className="mt-10 sm:mt-12 text-center max-w-3xl mx-auto px-2">
             <blockquote className="text-base sm:text-lg md:text-xl text-gray-300 italic border-l-4 border-primary pl-4 sm:pl-6 py-2 text-left sm:text-center">
               "At Caliber, we don't just work together, we grow together. Every team member brings unique talents that contribute to our collective success."
@@ -118,9 +125,9 @@ export default function Home() {
       </div>
 
       <About />
-      
+
       {/* Google Maps Section */}
-      <section 
+      <section
         ref={mapsAnimation.elementRef}
         className={`py-16 bg-secondary/30 scroll-slide-up ${mapsAnimation.isVisible ? 'visible' : ''}`}
       >
@@ -131,7 +138,7 @@ export default function Home() {
               Located in the heart of Tagbilaran City, Bohol
             </p>
           </div>
-          
+
           <div className="rounded-2xl overflow-hidden border border-white/10 shadow-xl max-w-4xl mx-auto">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.876!2d123.869761!3d9.631805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMzcnNTQuNSJOIDEyM8KwNTInMTEuMSJF!5e0!3m2!1sen!2sph!4v1600000000000!5m2!1sen!2sph"
@@ -145,7 +152,7 @@ export default function Home() {
               title="Caliber Business Resource - Venancio P. Inting Avenue, Tagbilaran City, Bohol"
             ></iframe>
           </div>
-          
+
           <div className="mt-8 text-center">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 bg-white/5 backdrop-blur-sm rounded-lg px-4 sm:px-6 py-3 border border-white/10 text-center sm:text-center max-w-xl mx-auto">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-primary shrink-0 mx-auto sm:mx-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -158,6 +165,9 @@ export default function Home() {
         </div>
       </section>
 
+      <Differentiation />
+      <Testimonials />
+      <CaseStudies />
       <ContactForm />
 
       <Footer />

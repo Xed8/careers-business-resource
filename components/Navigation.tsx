@@ -8,6 +8,7 @@ const navLinks = [
   { href: '#home', label: 'Home' },
   { href: '#services', label: 'Services' },
   { href: '#our-story', label: 'About Us' },
+  { href: '#testimonials', label: 'Testimonials' },
   { href: '#connect', label: 'Contact' },
 ];
 
@@ -122,18 +123,16 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div 
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm md:hidden transition-opacity duration-300 pointer-events-none ${
-          isMobileMenuOpen ? 'opacity-100 z-40' : 'opacity-0'
-        }`}
+      <div
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm md:hidden transition-opacity duration-300 pointer-events-none ${isMobileMenuOpen ? 'opacity-100 z-40' : 'opacity-0'
+          }`}
       />
 
       {/* Mobile Menu */}
-      <div 
+      <div
         data-mobile-menu
-        className={`md:hidden fixed top-[72px] left-0 right-0 bg-background border-t border-white/10 shadow-2xl transition-all duration-300 ease-in-out z-50 ${
-          isMobileMenuOpen ? 'max-h-[calc(100vh-72px)] opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-4 overflow-hidden pointer-events-none'
-        }`}
+        className={`md:hidden fixed top-[72px] left-0 right-0 bg-background border-t border-white/10 shadow-2xl transition-all duration-300 ease-in-out z-50 ${isMobileMenuOpen ? 'max-h-[calc(100vh-72px)] opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-4 overflow-hidden pointer-events-none'
+          }`}
       >
         <div className="p-4 sm:p-6 space-y-1 overflow-y-auto max-h-[calc(100vh-72px)]">
           {navLinks.map((link) => (

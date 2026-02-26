@@ -58,17 +58,17 @@ export default function About() {
 
         {/* Our Story */}
         <div id="our-story" className="mb-24 sm:mb-32">
-          <div 
+          <div
             ref={storyAnimation.elementRef}
             className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-slide-up ${storyAnimation.isVisible ? 'visible' : ''}`}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8">
+            <h2 className="heading-2 mb-6 sm:mb-8 text-balance">
               Our <span className="text-primary">Story</span>
             </h2>
-            
+
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
               {/* Text Content - Left Side */}
-              <div className="space-y-4 sm:space-y-6 text-gray-400 text-base sm:text-lg leading-relaxed">
+              <div className="space-y-4 sm:space-y-6 body-text">
                 <p>
                   At Caliber Business Resource Incorporated, we are dedicated to transforming the way businesses
                   approach remote staffing and operational support. CBR was founded not only from a passion for
@@ -111,8 +111,8 @@ export default function About() {
           </div>
         </div>
 
-{/* Message from CEO (Redesigned as a Quote/Highlight section) */}
-        <div 
+        {/* Message from CEO (Redesigned as a Quote/Highlight section) */}
+        <div
           ref={ceoAnimation.elementRef}
           className={`mb-24 sm:mb-32 relative scroll-slide-up ${ceoAnimation.isVisible ? 'visible' : ''}`}
         >
@@ -145,8 +145,8 @@ export default function About() {
           </div>
         </div>
 
-{/* Vision & Mission Cards */}
-        <div 
+        {/* Vision & Mission Cards */}
+        <div
           ref={visionMissionAnimation.elementRef}
           className={`grid sm:grid-cols-2 gap-4 sm:gap-6 mb-24 sm:mb-32 scroll-slide-up ${visionMissionAnimation.isVisible ? 'visible' : ''}`}
         >
@@ -169,16 +169,16 @@ export default function About() {
           ))}
         </div>
 
-{/* Meet Our Team */}
+        {/* Meet Our Team */}
         <div className="mb-24 sm:mb-32">
-          <div 
+          <div
             ref={teamAnimation.elementRef}
             className={`text-center mb-12 sm:mb-16 scroll-slide-up ${teamAnimation.isVisible ? 'visible' : ''} px-4 sm:px-0`}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+            <h2 className="heading-2 mb-4 sm:mb-6">
               Meet Our <span className="text-primary">Team</span>
             </h2>
-            <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">
+            <p className="body-text max-w-2xl mx-auto text-balance">
               Our leadership team brings decades of combined experience in BPO, operational excellence, and strategic management.
             </p>
           </div>
@@ -238,8 +238,8 @@ export default function About() {
           </div>
         </div>
 
-{/* Ethos */}
-        <div 
+        {/* Ethos */}
+        <div
           ref={ethosAnimation.elementRef}
           className={`mb-32 scroll-slide-up ${ethosAnimation.isVisible ? 'visible' : ''}`}
         >
@@ -262,8 +262,8 @@ export default function About() {
           </div>
         </div>
 
-{/* Why Join Us */}
-        <div 
+        {/* Why Join Us */}
+        <div
           ref={valuesAnimation.elementRef}
           className={`relative rounded-3xl overflow-hidden bg-secondary scroll-slide-up ${valuesAnimation.isVisible ? 'visible' : ''}`}
         >
