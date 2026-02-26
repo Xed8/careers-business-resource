@@ -1,6 +1,7 @@
 "use client";
 
 import { MapPin, Mail, Phone } from 'lucide-react';
+import Link from 'next/link';
 import { getImagePath } from '@/lib/utils';
 import ObfuscatedEmail from './ObfuscatedEmail';
 
@@ -67,8 +68,8 @@ export default function Footer() {
           <div>
             <h4 className="heading-3 mb-6">Legal</h4>
             <ul className="space-y-4 text-sm text-muted-foreground">
-              <li><a href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms-of-use" className="hover:text-primary transition-colors">Terms of Use</a></li>
+              <li><Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms-of-use" className="hover:text-primary transition-colors">Terms of Use</Link></li>
             </ul>
           </div>
         </div>
