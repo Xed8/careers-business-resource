@@ -40,10 +40,10 @@ export default function Navigation() {
       }
     );
 
-    // Observe all sections defined in navLinks
-    navLinks.forEach((link) => {
-      const id = link.href.substring(1);
-      const elements = document.getElementsByTagName('section'); // We might need to observe sections by id instead of getElementById if they lack id but we know they have IDs
+    // Observe all sections defined in navLinks plus open-roles
+    const sectionsToObserve = [...navLinks.map((link) => link.href.substring(1)), 'open-roles'];
+
+    sectionsToObserve.forEach((id) => {
       const element = document.getElementById(id);
       if (element) {
         observer.observe(element);
@@ -157,7 +157,10 @@ export default function Navigation() {
             <a
               href="#open-roles"
               onClick={(e) => handleNavClick(e, '#open-roles')}
-              className="bg-primary hover:bg-primary/90 text-background px-5 lg:px-6 py-2 lg:py-2.5 rounded-lg text-sm font-bold transition-all duration-300 hover:shadow-[0_0_20px_-5px_rgba(255,193,7,0.5)] transform hover:-translate-y-0.5"
+              className={`px-5 lg:px-6 py-2 lg:py-2.5 rounded-lg text-sm font-bold transition-all duration-300 transform hover:-translate-y-0.5 ${isHomePage && activeSection === 'open-roles'
+                  ? 'bg-white text-primary shadow-[0_0_20px_-5px_rgba(255,255,255,0.4)]'
+                  : 'bg-primary hover:bg-primary/90 text-background hover:shadow-[0_0_20px_-5px_rgba(255,193,7,0.5)]'
+                }`}
             >
               View Jobs
             </a>
@@ -207,7 +210,10 @@ export default function Navigation() {
             <a
               href="#open-roles"
               onClick={(e) => handleNavClick(e, '#open-roles')}
-              className="block bg-primary text-background px-6 py-3.5 rounded-xl text-center font-bold text-base"
+              className={`block px-6 py-3.5 rounded-xl text-center font-bold text-base transition-colors ${isHomePage && activeSection === 'open-roles'
+                  ? 'bg-white text-primary'
+                  : 'bg-primary text-background'
+                }`}
             >
               View Jobs
             </a>
